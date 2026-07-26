@@ -1,0 +1,214 @@
+@import "noctalia"
+
+// configuration {
+// 	icon-theme: "Papirus";
+// 	disable-history: true;
+// 	case-smart: true;
+// 
+// 	calc {
+// 		terse: true;
+// 		calc-command: "echo -n '{result}' | wl-copy";
+// 		reuse-result: true;
+// 	}
+// }
+
+* {
+	background: hsl(0, 0%, 12%, 60%);
+	foreground: hsl(0, 0%, 100%, 100%);
+	urgent: hsl(355, 95%, 44%, 100%);
+
+	background-color: @background;
+	foreground-color: @foreground;
+	alternate-background: @accent-fg;
+	normal-background: @bg-alt;
+	normal-foreground: @foreground;
+	urgent-background: @urgent;
+	urgent-foreground: @background;
+	selected-normal-foreground: @background;
+	selected-normal-background: @accent;
+	selected-urgent-foreground: @background;
+	selected-urgent-background: @urgent;
+}
+
+/*****----- Main Window -----*****/
+window {
+	transparency: "real";
+	font: "JetBrains Mono 15";
+	location: center;
+	anchor: center;
+	width: 800px;
+	x-offset: 0px;
+	y-offset: 0px;
+	enabled: true;
+	margin: 0px;
+	padding: 0px;
+	border: 0px solid;
+	border-radius: 15px;
+	cursor: "default";
+	background-color: @background-color;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+	enabled: true;
+	spacing: 10px;
+	margin: 0px;
+	padding: 40px;
+	border: 0px solid;
+	border-radius: 0px 0px 0px 0px;
+	background-color: transparent;
+	children: [ "inputbar", "message", "listview", "mode-switcher" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+	enabled: true;
+	spacing: 10px;
+	margin: 0px;
+	padding: 5px;
+	border: 1px solid;
+	border-radius: 12px;
+	background-color: @bg-alt;
+	text-color: @fg;
+	children: [ "entry", "num-filtered-rows" ];
+}
+
+entry {
+	enabled: true;
+	text-color: inherit;
+	cursor: text;
+	placeholder: "";
+}
+num-filtered-rows {
+	enabled: true;
+	expand: false;
+	text-color: inherit;
+}
+
+/*****----- Listview -----*****/
+listview {
+	enabled: true;
+	columns: 1;
+	lines: 10;
+	cycle: true;
+	dynamic: true;
+	scrollbar: false;
+	layout: vertical;
+	reverse: false;
+	fixed-height: true;
+	fixed-columns: true;
+	
+	spacing: 5px;
+	margin: 0px;
+	padding: 0px;
+	border: 0px solid;
+	background-color: transparent;
+	text-color: @fg;
+	cursor: "default";
+}
+
+/*****----- Elements -----*****/
+element {
+	enabled: true;
+	spacing: 10px;
+	margin: 0px;
+	padding: 5px 10px;
+	border: 0px solid;
+	border-radius: 20px;
+	background-color: transparent;
+	text-color: @fg;
+	cursor: pointer;
+}
+element normal.normal {
+	background-color: var(normal-background);
+	text-color: var(normal-foreground);
+}
+element normal.urgent {
+	background-color: var(urgent-background);
+	text-color: var(urgent-foreground);
+}
+element selected.normal {
+	background-color: var(selected-normal-background);
+	text-color: var(selected-normal-foreground);
+}
+element selected.urgent {
+	background-color: var(selected-urgent-background);
+	text-color: var(selected-urgent-foreground);
+}
+element alternate.normal {
+	background-color: var(normal-background);
+	text-color: var(normal-foreground);
+}
+element alternate.urgent {
+	background-color: var(urgent-background);
+	text-color: var(urgent-foreground);
+}
+element-icon {
+	background-color: transparent;
+	text-color: inherit;
+	size: 36px;
+	cursor: inherit;
+}
+element-text {
+	background-color: transparent;
+	text-color: inherit;
+	highlight: inherit;
+	cursor: inherit;
+	vertical-align: 0.5;
+	horizontal-align: 0.0;
+}
+
+/*****----- Mode Switcher -----*****/
+mode-switcher{
+	enabled: true;
+	spacing: 10px;
+	margin: 0px;
+	padding: 0px;
+	border: 0px solid;
+	border-radius: 0px;
+	background-color: transparent;
+	text-color: @fg;
+}
+button {
+	padding: 5px 10px;
+	border: 0px solid;
+	border-radius: 20px;
+	background-color: @alternate-background;
+	text-color: inherit;
+	cursor: pointer;
+}
+button selected {
+	background-color: var(selected-normal-background);
+	text-color: var(selected-normal-foreground);
+}
+
+/*****----- Message -----*****/
+message {
+	enabled: true;
+	margin: 0px;
+	padding: 0px;
+	border: 0px solid;
+	border-radius: 0px 0px 0px 0px;
+	background-color: transparent;
+	text-color: @fg;
+}
+textbox {
+	padding: 5px 10px;
+	border: 0px solid;
+	border-radius: 20px;
+	background-color: @alternate-background;
+	text-color: @fg;
+	vertical-align: 0.5;
+	horizontal-align: 0.0;
+	highlight: none;
+	placeholder-color: @foreground-color;
+	blink: true;
+	markup: true;
+}
+error-message {
+	padding: 10px;
+	border: 2px solid;
+	border-radius: 20px;
+	background-color: @background-color;
+	text-color: @fg;
+}

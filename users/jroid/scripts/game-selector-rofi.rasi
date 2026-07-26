@@ -1,0 +1,24 @@
+configuration {
+	disable-history: false;
+}
+
+window {
+	width: 1231px;
+	height: 546px;
+}
+
+listview {
+	columns: 3;
+	cycle: true;
+	layout: horizontal;
+	fixed-height: true;
+	fixed-width: true;
+}
+
+element {
+	orientation: vertical;
+}
+
+element-icon {
+	size: 360px;
+}
