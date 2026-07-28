@@ -5,12 +5,13 @@
     ./noctalia
     ./rofi
     ./yazi
-    ./zen-browser
+    ./qutebrowser
     ./equibop.nix
     ./fish.nix
     ./git.nix
     ./kitty.nix
     ./mpv.nix
+		./yt-dlp.nix
   ];
   programs = {
     bash = {

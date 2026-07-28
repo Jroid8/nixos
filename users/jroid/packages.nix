@@ -13,6 +13,7 @@
     fastfetch
 		mpc
 		grim
+		bitwarden-cli
     # lm_sensors
 
     # Art

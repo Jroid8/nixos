@@ -19,6 +19,25 @@ let
       '';
     }
   );
+  yazi-select = pkgs.writeShellApplication {
+    name = "yazi-select";
+    runtimeInputs = [
+      pkgs.yazi
+      config.terminal-emulator
+    ];
+    text = /* bash */ ''
+      YAZI_ID="$(date +%s)$RANDOM"
+      ${lib.getExe config.terminal-emulator} yazi --client-id "$YAZI_ID"
+      pid=$!
+      while ! ya emit reveal "$1" 2>/dev/null; do
+      	sleep 0.05
+      done
+      for a in "$@"; do
+      	ya emit toggle --state=on "$a"
+      done
+      wait $pid
+    '';
+  };
   mps = (
     pkgs.replaceVarsWith {
       name = "mps";
@@ -123,6 +142,7 @@ in
     primerun
     gametime
     mps
+		yazi-select
   ];
-  custom-pkgs = { inherit mps gametime boot-to-windows; };
+  custom-pkgs = { inherit mps gametime boot-to-windows yazi-select; };
 }
