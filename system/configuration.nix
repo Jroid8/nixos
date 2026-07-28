@@ -63,6 +63,13 @@
   };
   nixpkgs.config = {
     allowUnfree = true;
+    cudaCapabilities = [
+      "8.7"
+      "8.6"
+      "8.0"
+    ];
+    cudaForwardCompat = true;
+    cudaSupport = true;
   };
 
   # Users

@@ -28,10 +28,10 @@
       };
       timestamp = "-7 days";
     };
-    # ollama = {
-    #   enable = true;
-    #   acceleration = "cuda";
-    # };
+    ollama = {
+      enable = true;
+      acceleration = "cuda";
+    };
     ssh-agent.enable = true;
     playerctld.enable = true;
   };
