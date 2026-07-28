@@ -5,20 +5,6 @@
   ...
 }:
 let
-  primerun = (
-    pkgs.writeShellApplication {
-      name = "prime-run";
-      text = ''
-        unset __EGL_VENDOR_LIBRARY_FILENAMES
-        unset VK_DRIVER_FILES
-        export __NV_PRIME_RENDER_OFFLOAD=1
-        export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-        export __GLX_VENDOR_LIBRARY_NAME=nvidia
-        export __VK_LAYER_NV_optimus=NVIDIA_only
-        exec "$@"
-      '';
-    }
-  );
   yazi-select = pkgs.writeShellApplication {
     name = "yazi-select";
     runtimeInputs = [
@@ -66,7 +52,6 @@ let
         pkgs.coreutils
         pkgs.systemd
         pkgs.gamemode
-        primerun
       ];
     };
   };
@@ -139,7 +124,6 @@ in
       };
     })
     boot-to-windows
-    primerun
     gametime
     mps
 		yazi-select

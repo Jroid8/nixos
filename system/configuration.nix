@@ -1,4 +1,4 @@
-{ pkgs, modulesPath, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./doas.nix
@@ -7,28 +7,13 @@
     ./packages.nix
     ./programs.nix
     ./services.nix
-    # inputs.hardware.common.cpu.intel.comet-lake
-    # inputs.hardware.common.gpu.nvidia.ampere
-    # inputs.hardware.common.pc.laptop
-    # inputs.hardware.common.pc.ssd
-    (modulesPath + "/virtualisation/qemu-vm.nix")
+    inputs.hardware.common.cpu.intel.comet-lake
+    inputs.hardware.common.gpu.nvidia.ampere
+    inputs.hardware.common.pc.laptop
+    inputs.hardware.common.pc.ssd
   ];
 
   system.stateVersion = "26.05";
-
-  virtualisation.qemu = {
-    forceAccel = true;
-    options = [
-      "-m 4G"
-			"-object memory-backend-memfd,id=mem,size=4G,share=on"
-      "-audiodev pipewire,id=snd0"
-      "-device ich9-intel-hda"
-      "-device hda-output,audiodev=snd0"
-      "-numa node,memdev=mem"
-			# "-chardev socket,id=char0,path=/tmp/vm-share.sock"
-			# "-device vhost-user-fs-pci,chardev=char0,tag=myfs"
-    ];
-  };
 
   # Kernel
   boot.initrd.availableKernelModules = [

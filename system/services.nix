@@ -27,10 +27,6 @@
       alsa.enable = true;
       pulse.enable = true;
     };
-    # services.xserver.videoDrivers = [
-    #   "modesetting"
-    #   "nvidia"
-    # ];
   };
 	systemd.services.tor.wantedBy = lib.mkForce [ ];
 }
