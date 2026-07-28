@@ -15,7 +15,7 @@
   environment = {
     variables = {
       __EGL_VENDOR_LIBRARY_FILENAMES = "${pkgs.mesa.out}/share/glvnd/egl_vendor.d/50_mesa.json";
-      VK_DRIVER_FILES = "${pkgs.mesa.out}/share/vulkan/icd.d/intel_icd.json";
+      VK_DRIVER_FILES = "${pkgs.mesa.out}/share/vulkan/icd.d/intel_icd.x86_64.json";
       __GLX_VENDOR_LIBRARY_NAME = "mesa";
     };
     systemPackages = [
