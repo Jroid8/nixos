@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   services = {
     tuned.enable = true;
     upower.enable = true;
@@ -32,4 +32,5 @@
     #   "nvidia"
     # ];
   };
+	systemd.services.tor.wantedBy = lib.mkForce [ ];
 }
