@@ -69,7 +69,7 @@ in
     };
     terminal.toggleterm = {
       enable = true;
-			mappings.open = "<C-;>";
+      mappings.open = "<C-;>";
       setupOpts = {
         size = mkLuaInline /* lua */ ''
           function(term)

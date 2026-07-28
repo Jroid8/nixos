@@ -126,7 +126,14 @@ in
     boot-to-windows
     gametime
     mps
-		yazi-select
+    yazi-select
   ];
-  custom-pkgs = { inherit mps gametime boot-to-windows yazi-select; };
+  custom-pkgs = {
+    inherit
+      mps
+      gametime
+      boot-to-windows
+      yazi-select
+      ;
+  };
 }

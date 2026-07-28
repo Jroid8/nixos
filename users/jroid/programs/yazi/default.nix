@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-	imports = [./keymaps.nix];
+  imports = [ ./keymaps.nix ];
 
   programs.yazi = {
     enable = true;

@@ -1,10 +1,10 @@
 {
   imports = [
     ./animation.nix
-		./keybinds.nix
+    ./keybinds.nix
     ./services.nix
-		./window-rules.nix
-		./workspace-rules.nix
+    ./window-rules.nix
+    ./workspace-rules.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -59,9 +59,9 @@
           disable_hyprland_logo = true;
           disable_splash_rendering = true;
         };
-				ecosystem = {
-					no_update_news = true;
-				};
+        ecosystem = {
+          no_update_news = true;
+        };
       };
       monitor = [
         {

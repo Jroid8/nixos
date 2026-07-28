@@ -4,7 +4,7 @@
     ./doas.nix
     ./greet.nix
     ./packages.nix
-		./prime.nix
+    ./prime.nix
     ./programs.nix
     ./services.nix
     inputs.hardware.common.cpu.intel.comet-lake

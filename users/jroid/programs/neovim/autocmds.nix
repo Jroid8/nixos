@@ -6,7 +6,7 @@ in
   programs.nvf.settings.vim.autocmds = [
     {
       event = [ "BufRead" ];
-      pattern = ["*"];
+      pattern = [ "*" ];
       callback = mkLuaInline /* lua */ ''
         function()
         	local l1 = vim.fn.getline(1)

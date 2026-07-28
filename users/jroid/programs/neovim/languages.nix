@@ -1,4 +1,4 @@
-{pkgs, lib, ...}: {
+{ pkgs, lib, ... }: {
   programs.nvf.settings.vim.languages = {
     enableTreesitter = true;
     enableFormat = true;
@@ -11,7 +11,7 @@
     json.enable = true;
     lua.enable = true;
     python.enable = true;
-		typescript.enable = true;
+    typescript.enable = true;
 
     css = {
       enable = true;
@@ -31,7 +31,7 @@
     };
     rust = {
       enable = true;
-			lsp.enable = false;
+      lsp.enable = false;
       extensions.rustaceanvim = {
         enable = true;
         setupOpts = {
@@ -54,9 +54,9 @@
         };
       };
     };
-		typst = {
-			enable = true;
-			extensions.typst-preview-nvim.enable = true;
-		};
+    typst = {
+      enable = true;
+      extensions.typst-preview-nvim.enable = true;
+    };
   };
 }

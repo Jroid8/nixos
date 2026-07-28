@@ -2,14 +2,14 @@
   home.packages = with pkgs; [
     # GUI
     v2rayn
-		rofi
-		satty
+    rofi
+    satty
 
     # CLI
     fastfetch
-		mpc
-		grim
-		bitwarden-cli
+    mpc
+    grim
+    bitwarden-cli
     lm_sensors
 
     # Art

@@ -1,7 +1,12 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
-		./userscripts
+    ./userscripts
     ./colors.nix
     ./keybindings.nix
   ];

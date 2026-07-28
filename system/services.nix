@@ -28,5 +28,5 @@
       pulse.enable = true;
     };
   };
-	systemd.services.tor.wantedBy = lib.mkForce [ ];
+  systemd.services.tor.wantedBy = lib.mkForce [ ];
 }

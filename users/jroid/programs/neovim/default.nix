@@ -1,18 +1,18 @@
 { pkgs, ... }: {
   imports = [
     ./autocmds.nix
-		./autocomplete.nix
-		./rainbowcol.nix
-		./extra_lua.nix
+    ./autocomplete.nix
+    ./rainbowcol.nix
+    ./extra_lua.nix
     ./formatting.nix
     ./git.nix
     ./keymaps.nix
     ./languages.nix
     ./lsp.nix
     ./options.nix
-		./plugins.nix
-		./telescope.nix
-		./treesitter.nix
+    ./plugins.nix
+    ./telescope.nix
+    ./treesitter.nix
   ];
   programs.nvf = {
     enable = true;

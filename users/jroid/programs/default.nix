@@ -11,7 +11,7 @@
     ./git.nix
     ./kitty.nix
     ./mpv.nix
-		./yt-dlp.nix
+    ./yt-dlp.nix
   ];
   programs = {
     bash = {

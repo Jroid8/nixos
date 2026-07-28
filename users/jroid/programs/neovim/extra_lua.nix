@@ -7,7 +7,7 @@ in
     extraLuaFiles = [
       ./terminal.lua
       ./autosave.lua
-			./project.lua
+      ./project.lua
     ];
     luaConfigRC = {
       theme = dag.entryBefore [ "pluginConfigs" "lazyConfigs" ] /* lua */ ''
