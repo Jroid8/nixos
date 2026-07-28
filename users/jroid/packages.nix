@@ -1,11 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    # Rust
-    # cargo
-    # clippy
-
     # GUI
-    # v2rayn
+    v2rayn
 		rofi
 		satty
 
@@ -14,12 +10,12 @@
 		mpc
 		grim
 		bitwarden-cli
-    # lm_sensors
+    lm_sensors
 
     # Art
-    # blender
-    # krita
-    # krita-plugin-gmic
-    # inkscape
+    blender
+    krita
+    krita-plugin-gmic
+    inkscape
   ];
 }

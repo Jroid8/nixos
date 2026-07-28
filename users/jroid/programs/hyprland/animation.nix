@@ -11,16 +11,9 @@
           "easeOutQuint"
           {
             type = "bezier";
-            points = [
-              [
-                0.23
-                1
-              ]
-              [
-                0.32
-                1
-              ]
-            ];
+            /*nixfmt:disable*/
+            points = [ [ 0.23 1 ] [ 0.32 1 ] ];
+            /*nixfmt:enable*/
           }
         ];
       }
@@ -29,16 +22,9 @@
           "easeInOutCubic"
           {
             type = "bezier";
-            points = [
-              [
-                0.65
-                0.05
-              ]
-              [
-                0.36
-                1
-              ]
-            ];
+            /*nixfmt:disable*/
+            points = [ [ 0.65 0.05 ] [ 0.36 1 ] ];
+            /*nixfmt:enable*/
           }
         ];
       }
@@ -47,16 +33,9 @@
           "linear"
           {
             type = "bezier";
-            points = [
-              [
-                0
-                0
-              ]
-              [
-                1
-                1
-              ]
-            ];
+            /*nixfmt:disable*/
+            points = [ [ 0 0 ] [ 1 1 ] ];
+            /*nixfmt:enable*/
           }
         ];
       }
@@ -65,16 +44,9 @@
           "almostLinear"
           {
             type = "bezier";
-            points = [
-              [
-                0.5
-                0.5
-              ]
-              [
-                0.75
-                1
-              ]
-            ];
+            /*nixfmt:disable*/
+            points = [ [ 0.5 0.5 ] [ 0.75 1 ] ];
+            /*nixfmt:enable*/
           }
         ];
       }
@@ -83,16 +55,9 @@
           "quick"
           {
             type = "bezier";
-            points = [
-              [
-                0.15
-                0
-              ]
-              [
-                0.1
-                1
-              ]
-            ];
+            /*nixfmt:disable*/
+            points = [ [ 0.15 0 ] [ 0.1 1 ] ];
+            /*nixfmt:enable*/
           }
         ];
       }

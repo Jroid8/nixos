@@ -12,9 +12,9 @@
     ripgrep
     vim
 
-    # wineWow64Packages.waylandFull
-    # winetricks
+    wineWow64Packages.waylandFull
+    winetricks
 
-    cage
+    liberation_ttf
   ];
 }

@@ -1,5 +1,6 @@
 {
   config,
+	pkgs,
   lib,
   inputs,
   ...
@@ -46,9 +47,11 @@
 
   config = {
     # Home Manager
-    home.username = "jroid";
-    home.homeDirectory = "/home/jroid";
-    home.stateVersion = "26.05";
+    home = {
+      username = "jroid";
+      homeDirectory = "/home/jroid";
+      stateVersion = "26.05";
+    };
     programs.home-manager.enable = true;
 
     home.sessionVariables = {
@@ -56,9 +59,6 @@
       HYPRCURSOR_SIZE = 24;
       GRIM_DEFAULT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots";
       QT_QPA_PLATFORM = "wayland";
-      #	__EGL_VENDOR_LIBRARY_FILENAMES = "/nix/store/.../share/glvnd/egl_vendor.d/50_mesa.json";
-      #	VK_DRIVER_FILES = "/nix/store/.../share/vulkan/icd.d/intel_icd.json";
-      #	__GLX_VENDOR_LIBRARY_NAME = "mesa";
     };
   };
 }
