@@ -26,6 +26,14 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "amd_pstate=active" ];
 
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/nix".options = [
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+
   # GRUB
   boot.loader.grub = {
     enable = true;
