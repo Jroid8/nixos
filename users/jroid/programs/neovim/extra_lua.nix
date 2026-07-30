@@ -1,6 +1,6 @@
-{ nvf, ... }:
+{ inputs, ... }:
 let
-  inherit (nvf.lib.nvim) dag;
+  inherit (inputs.nvf.lib.nvim) dag;
 in
 {
   programs.nvf.settings.vim = {

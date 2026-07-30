@@ -33,8 +33,6 @@
       self,
       nixpkgs,
       home-manager,
-      nvf,
-      grim-hyprland,
       ...
     }@inputs:
     let
@@ -55,7 +53,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                inherit inputs nvf;
+                inherit inputs;
               };
               home-manager.backupCommand = "${pkgs.trash-cli}/bin/trash-put";
               home-manager.users.jroid = ./users/jroid/home.nix;
