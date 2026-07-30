@@ -20,6 +20,10 @@
       url = "github:eriedaberrie/grim-hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nbfc-linux = {
+      url = "github:nbfc-linux/nbfc-linux?dir=pkgbuilds/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hardware.url = "github:nixos/nixos-hardware";
   };

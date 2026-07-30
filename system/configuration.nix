@@ -6,7 +6,7 @@
     ./packages.nix
     ./prime.nix
     ./programs.nix
-    ./services.nix
+    ./services
     inputs.hardware.common.cpu.intel.comet-lake
     inputs.hardware.common.gpu.nvidia.ampere
     inputs.hardware.common.pc.laptop
