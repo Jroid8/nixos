@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager?ref=release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,7 +28,6 @@
     {
       self,
       nixpkgs,
-      nixpkgs-unstable,
       home-manager,
       nvf,
       grim-hyprland,
@@ -38,14 +36,13 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      unspkgs = nixpkgs-unstable.legacyPackages.${system};
     in
     {
       nixosConfigurations = {
         omen = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs unspkgs;
+            inherit inputs;
           };
           modules = [
             ./system/configuration.nix
@@ -54,7 +51,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                inherit inputs unspkgs nvf;
+                inherit inputs nvf;
               };
               home-manager.backupCommand = "${pkgs.trash-cli}/bin/trash-put";
               home-manager.users.jroid = ./users/jroid/home.nix;
