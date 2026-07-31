@@ -239,14 +239,10 @@ in
               "E"
               (hl_dsp "exec_raw" browser)
             ]
-            # [
-            #   "ALT + E"
-            #   (hl_dsp "exec_raw" (lib.getExe pkgs.ungoogled-chromium))
-            # ]
-            # [
-            #   "M"
-            #   (hl_dsp "exec_raw" (lib.getExe pkgs.prismlauncher))
-            # ]
+            [
+              "ALT + E"
+              (hl_dsp "exec_raw" (lib.getExe pkgs.ungoogled-chromium))
+            ]
             [
               "N"
               (hl_dsp "exec_raw" "${term} ${config.programs.nvf.finalPackage} +:SelectProject")
