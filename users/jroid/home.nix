@@ -33,7 +33,6 @@
               "gametime"
               "boot-to-windows"
               "yazi-select"
-              "qute-bitwarden"
             ]
             (name: {
               inherit name;
