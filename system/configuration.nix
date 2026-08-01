@@ -65,10 +65,14 @@
   swapDevices = [ { device = "/dev/disk/by-uuid/ffd87ad8-cdd8-4c66-a6f4-8fc3afa63741"; } ];
 
   # GRUB
-  boot.loader.grub = {
-    enable = true;
-    useOSProber = true;
-    device = "/dev/disk/by-uuid/025F-70BD";
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      useOSProber = true;
+      efiSupport = true;
+      device = "nodev";
+    };
   };
 
   # Bluetooth
