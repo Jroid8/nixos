@@ -14,10 +14,6 @@
           };
         };
       }
-      {
-        name = "telescope-ui-select-nvim";
-        packages = [ pkgs.vimPlugins.telescope-ui-select-nvim ];
-      }
     ];
   };
 }
