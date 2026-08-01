@@ -82,9 +82,10 @@
   };
 
   # Networking
-  networking.hostName = "omen";
-  networking.networkmanager.enable = true;
-  networking.wireless.enable = true;
+  networking = {
+    hostName = "omen";
+    networkmanager.enable = true;
+  };
 
   time.timeZone = "Asia/Tehran";
 
