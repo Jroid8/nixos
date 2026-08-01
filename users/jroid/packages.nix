@@ -4,13 +4,17 @@
     v2rayn
     rofi
     satty
+    localsend
 
     # CLI
+    jq
+    nixfmt
+    python3
+    wl-clipboard
     fastfetch
-    mpc
     grim
-    bitwarden-cli
     lm_sensors
+    mpc
 
     # Art
     blender
