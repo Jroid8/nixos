@@ -10,9 +10,9 @@
       ];
 
       # Proxies
-      "Vv" = "set content.proxy socks5://localhost:10808/";
-      "Vt" = "set content.proxy socks5://localhost:9050/";
-      "Vn" = "set content.proxy none";
+      "gvv" = "set content.proxy socks5://localhost:10808/";
+      "gvt" = "set content.proxy socks5://localhost:9050/";
+      "gvn" = "set content.proxy none";
     };
   };
 }
