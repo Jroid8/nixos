@@ -7,10 +7,9 @@
     ./prime.nix
     ./programs.nix
     ./services
-    inputs.hardware.common.cpu.intel.comet-lake
-    inputs.hardware.common.gpu.nvidia.ampere
-    inputs.hardware.common.pc.laptop
-    inputs.hardware.common.pc.ssd
+    "${inputs.hardware}/common/cpu/intel/comet-lake"
+    inputs.hardware.nixosModules.common-pc
+    inputs.hardware.nixosModules.common-pc-ssd
   ];
 
   system.stateVersion = "26.05";

@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 {
   imports = [
-    inputs.hardware.common.gpu.nvidia.prime
+    inputs.hardware.nixosModules.common-gpu-nvidia
   ];
 
   hardware.nvidia.prime = {
