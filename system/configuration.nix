@@ -120,11 +120,15 @@
   };
 
   # Users
-  users.users.jroid = {
-    isNormalUser = true;
-    initialPassword = "12345";
-    extraGroups = [ "wheel" ];
-    shell = pkgs.fish;
+  users = {
+    users.jroid = {
+      isNormalUser = true;
+      initialPassword = "12345";
+      group = "jroid";
+      extraGroups = [ "wheel" ];
+      shell = pkgs.fish;
+    };
+    groups.jroid = { };
   };
 
   environment.pathsToLink = [
