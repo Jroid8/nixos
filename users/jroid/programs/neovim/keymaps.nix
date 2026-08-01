@@ -191,6 +191,13 @@
       action = ":vnew | TermBuf<CR>";
       desc = "new vertial buffer";
     }
+    # Neotree
+    {
+      mode = "n";
+      key = "<leader>e";
+      action = ":Neotree toggle<CR>";
+      desc = "Toggle neotree";
+    }
   ]
 	/*nixfmt:disable*/
   ++ (builtins.map
