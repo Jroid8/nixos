@@ -29,7 +29,7 @@
     kernelModules = [ "kvm-intel" ];
   };
 
-	# Firmwares
+  # Firmwares
   hardware.firmware = with pkgs; [
     linux-firmware
     sof-firmware
