@@ -15,15 +15,25 @@
   system.stateVersion = "26.05";
 
   # Kernel
-  boot.initrd.availableKernelModules = [
-    "nvme"
-    "xhci_pci"
-    "thunderbolt"
-    "usb_storage"
-    "sd_mod"
+  boot = {
+    initrd.availableKernelModules = [
+      "nvme"
+      "vmd"
+      "xhci_pci"
+      "thunderbolt"
+      "usb_storage"
+      "sd_mod"
+    ];
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [ "amd_pstate=active" ];
+    kernelModules = [ "kvm-intel" ];
+  };
+
+	# Firmwares
+  hardware.firmware = with pkgs; [
+    linux-firmware
+    sof-firmware
   ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [ "amd_pstate=active" ];
 
   fileSystems = {
     "/" = {
