@@ -13,8 +13,8 @@
         diffThis = "<leader>gd";
         resetBuffer = "<leader>gR";
         resetHunk = "<leader>gr";
-        stageBuffer = "<leader>gs";
-        stageHunk = "<leader>gS";
+        stageBuffer = "<leader>gS";
+        stageHunk = "<leader>gs";
         undoStageHunk = "<leader>gu";
         toggleDeleted = null;
       };
@@ -22,7 +22,7 @@
     neogit = {
       enable = true;
       mappings = {
-        commit = null;
+        commit = "<leader>gc";
         open = "<leader>gg";
         pull = "<leader>gp";
         push = "<leader>gP";
