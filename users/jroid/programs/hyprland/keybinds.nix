@@ -285,8 +285,8 @@ in
       	for cc = string.byte('A'), string.byte('Z') do
       		local ch = string.char(cc)
       		hl.bind(ch, hl.dsp.focus({ workspace = "name:" .. ch }))
-      		hl.bind("SHIFT + " .. ch, hl.dsp.window.move({ workspace = ch, follow = false }))
-      		hl.bind("SHIFT + ALT + " .. ch, hl.dsp.window.move({ workspace = ch, follow = true }))
+      		hl.bind("SUPER + " .. ch, hl.dsp.window.move({ workspace = "name:" .. ch, follow = false }))
+      		hl.bind("SUPER + SHIFT + " .. ch, hl.dsp.window.move({ workspace = "name:" .. ch, follow = true }))
       	end
       	hl.bind("catchall", hl.dsp.submap("reset"))
       end)
