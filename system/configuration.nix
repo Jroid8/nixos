@@ -90,19 +90,23 @@
   time.timeZone = "Asia/Tehran";
 
   # Locale
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocales = [ "fa_IR/UTF-8" ];
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocales = [ "fa_IR/UTF-8" ];
+  };
 
   # Nix
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-  };
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
+  nix = {
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+    };
   };
   nixpkgs.config = {
     allowUnfree = true;
