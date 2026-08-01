@@ -8,7 +8,6 @@
     fd
     fish
     gcc
-    git
     ripgrep
     vim
 
