@@ -4,70 +4,68 @@
       mode = "i";
       key = "jf";
       action = "<ESC>";
-      desc = "";
       silent = false;
     }
     {
       mode = "i";
       key = "<S-CR>";
       action = "<ESC>O";
-      desc = "";
       silent = false;
     }
     {
       mode = "n";
       key = "<leader>q";
       action = ":try | quit | catch /E37:/ | wq | endtry<CR><CR>";
-      desc = "save and quit";
+      desc = "Save and quit";
     }
     {
       mode = "n";
       key = "<leader>jh";
       action = ":setlocal hlsearch!<CR>";
-      desc = "toggle search highlights";
+      desc = "Toggle search highlights";
     }
     {
       mode = "n";
       key = "<leader>jr";
       action = ":setlocal rnu!<CR>";
-      desc = "toggle relative number line";
+      desc = "Toggle relative number line";
     }
     {
       mode = "n";
       key = "<leader>js";
       action = ":setlocal spell!<CR>";
-      desc = "toggle spell checking";
+      desc = "Toggle spell checking";
     }
     {
       mode = "n";
       key = "<leader>jf";
       action = ":filetype detect<CR>";
-      desc = "detect filetype";
+      desc = "Detect filetype";
     }
     {
       mode = "n";
       key = "<leader>jl";
       action = ":Lazy<CR>";
-      desc = "show lazy";
+      desc = "Show lazy";
     }
     {
       mode = "n";
       key = "<leader>c";
       action = ":bd<CR>";
-      desc = "delete buffer";
+      desc = "Delete buffer";
     }
     {
       mode = "v";
       key = "/r";
       action = "\"hy:%s/<C-r>h//g<left><left>";
-      desc = "replace selected";
+      desc = "Replace selected";
       silent = false;
     }
     {
       mode = "v";
       key = "/m";
       action = "\"hy:%s/<C-r>h/<C-r>h/g<left><left>";
-      desc = "modify selected";
+      desc = "Modify selected";
       silent = false;
     }
     {
@@ -94,7 +92,7 @@
       mode = "n";
       key = "\"\"";
       action = ":registers<CR>";
-      desc = "list registers";
+      desc = "List registers";
     }
     {
       mode = [
@@ -104,7 +102,6 @@
       ];
       key = "<C-h>";
       action = "<Left>";
-      desc = "";
       silent = false;
     }
     {
@@ -115,7 +112,6 @@
       ];
       key = "<C-j>";
       action = "<Down>";
-      desc = "";
       silent = false;
     }
     {
@@ -126,7 +122,6 @@
       ];
       key = "<C-k>";
       action = "<Up>";
-      desc = "";
       silent = false;
     }
     {
@@ -137,7 +132,6 @@
       ];
       key = "<C-l>";
       action = "<Right>";
-      desc = "";
       silent = false;
     }
     {
@@ -165,7 +159,7 @@
       mode = "n";
       key = "<leader>jq";
       lua = true;
-      desc = "toggle quickfix list window";
+      desc = "Toggle quickfix list window";
       action = /* lua */ ''
         function()
         	for _, win in pairs(vim.api.nvim_tabpage_list_wins(0)) do
@@ -183,13 +177,13 @@
       mode = "n";
       key = "<leader>tb";
       action = ":enew | TermBuf<CR>";
-      desc = "new terminal buffer";
+      desc = "New terminal buffer";
     }
     {
       mode = "n";
       key = "<leader>tv";
       action = ":vnew | TermBuf<CR>";
-      desc = "new vertial buffer";
+      desc = "New vertial buffer";
     }
     # Neotree
     {
