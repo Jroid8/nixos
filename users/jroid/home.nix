@@ -54,8 +54,6 @@
     programs.home-manager.enable = true;
 
     home.sessionVariables = {
-      XCURSOR_SIZE = 24;
-      HYPRCURSOR_SIZE = 24;
       GRIM_DEFAULT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots";
       QT_QPA_PLATFORM = "wayland";
     };
