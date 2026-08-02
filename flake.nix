@@ -24,15 +24,19 @@
       url = "github:nbfc-linux/nbfc-linux?dir=pkgbuilds/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hardware.url = "github:nixos/nixos-hardware";
   };
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
+      nix-index-database,
       ...
     }@inputs:
     let
@@ -48,15 +52,18 @@
           };
           modules = [
             ./system/configuration.nix
+						nix-index-database.nixosModules.default
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit inputs;
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
+                backupCommand = "${pkgs.trash-cli}/bin/trash-put";
+                users.jroid = ./users/jroid/home.nix;
               };
-              home-manager.backupCommand = "${pkgs.trash-cli}/bin/trash-put";
-              home-manager.users.jroid = ./users/jroid/home.nix;
             }
           ];
         };
