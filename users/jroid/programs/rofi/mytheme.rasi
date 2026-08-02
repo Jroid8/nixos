@@ -1,17 +1,5 @@
 @import "noctalia"
 
-// configuration {
-// 	icon-theme: "Papirus";
-// 	disable-history: true;
-// 	case-smart: true;
-// 
-// 	calc {
-// 		terse: true;
-// 		calc-command: "echo -n '{result}' | wl-copy";
-// 		reuse-result: true;
-// 	}
-// }
-
 * {
 	background: hsl(0, 0%, 12%, 60%);
 	foreground: hsl(0, 0%, 100%, 100%);
