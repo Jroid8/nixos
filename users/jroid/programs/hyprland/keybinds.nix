@@ -117,6 +117,12 @@ in
           (hl_dsp "exec_raw" "${noctalia} msg wallpaper-next")
         ]
 
+        # Exit hyprland
+        [
+          "SUPER + SHIFT + Escape"
+          (hl_dsp "exec_raw" "${lib.getExe pkgs.hyprshutdown}")
+        ]
+
         # Keyboard Special Keys
         [
           "Print"
