@@ -7,6 +7,7 @@
     ./yazi
     ./qutebrowser
     ./equibop.nix
+    ./feh.nix
     ./fish.nix
     ./git.nix
     ./kitty.nix
