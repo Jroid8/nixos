@@ -1,8 +1,25 @@
-{ lib, pkgs, ... }: {
-  services.greetd = {
+{ pkgs, ... }: {
+  programs.regreet = {
     enable = true;
-    settings.default_session = {
-      command = "${lib.getExe pkgs.cage} -s -- ${lib.getExe pkgs.gtkgreet}";
+    cursorTheme = {
+      name = "phinger-cursors-dark";
+      package = pkgs.phinger-cursors;
     };
+    font = {
+      name = "Ubuntu Sans";
+      package = pkgs.ubuntu-sans;
+    };
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
+    };
+    settings = {
+      GTK.application_prefer_dark_theme = true;
+    };
+    extraCss = /* css */ ''
+      picture {
+      	background-color: #222;
+      }
+    '';
   };
 }
