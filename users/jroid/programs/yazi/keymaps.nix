@@ -1,3 +1,7 @@
+{ pkgs, config, ... }:
+let
+  rofi = config.custom-pkgs.rofi;
+in
 {
   programs.yazi.keymap = {
     mgr = {
@@ -39,23 +43,23 @@
         }
         {
           on = [ "<A-d>" ];
-          run = "shell -- dragon-drop -T %s";
+          run = "shell -- ${pkgs.dragon-drop} -T %s";
           desc = "drag and drop selected";
         }
         {
           on = [ "<A-D>" ];
-          run = "shell -- dragon-drop -T -A %s";
+          run = "shell -- ${pkgs.dragon-drop} -T -A %s";
           desc = "drag and drop all at once";
         }
         {
           on = [ "<A-g>" ];
-          run = ''shell -- rofi -config filebrowser -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"'';
+          run = ''shell -- ${rofi} -config filebrowser -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"'';
           desc = "Grid view";
         }
         {
-						/*nixfmt:disable*/
-            on = [ "g" "t" ];
-						/*nixfmt:enable*/
+					/*nixfmt:disable*/
+					on = [ "g" "t" ];
+					/*nixfmt:enable*/
           run = "cd /dev/shm";
         }
       ];
@@ -67,9 +71,9 @@
         desc = "Cancel input";
       }
       {
-					/*nixfmt:disable*/
-          on = [ "j" "k" ];
-					/*nixfmt:enable*/
+				/*nixfmt:disable*/
+				on = [ "j" "k" ];
+				/*nixfmt:enable*/
         run = "close";
         desc = "Cancel input";
       }
