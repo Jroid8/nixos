@@ -9,19 +9,12 @@
     ./userscripts
     ./colors.nix
     ./keybindings.nix
+    ./search-engines.nix
   ];
 
   web-browser = pkgs.qutebrowser;
   programs.qutebrowser = {
     enable = true;
-    searchEngines = {
-      wi = "https://en.wikipedia.org/wiki/Special:Search?search={}&go=Go&ns0=1";
-      arwi = "https://wiki.archlinux.org/?search={}";
-      nixwi = "https://wiki.nixos.org/index.php?search={}";
-      nixpkgs = "https://search.nixos.org/packages?query={}";
-      nixopts = "https://search.nixos.org/options?query={}";
-      goo = "https://www.google.com/search?hl=en&q={}";
-    };
     extraConfig = /* python */ ''
       c.content.headers.custom = {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
     '';
