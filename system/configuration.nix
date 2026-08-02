@@ -63,6 +63,7 @@
     };
   };
   swapDevices = [ { device = "/dev/disk/by-uuid/ffd87ad8-cdd8-4c66-a6f4-8fc3afa63741"; } ];
+  boot.tmp.useZram = true;
 
   # GRUB
   boot.loader = {
