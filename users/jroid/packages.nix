@@ -1,9 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     # GUI
-    v2rayn
-    satty
     localsend
+    satty
 
     # CLI
     dragon-drop

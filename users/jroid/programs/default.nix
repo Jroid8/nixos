@@ -12,6 +12,7 @@
     ./git.nix
     ./kitty.nix
     ./mpv.nix
+    ./v2rayn.nix
     ./yt-dlp.nix
   ];
   programs = {
