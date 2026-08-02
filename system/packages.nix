@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    file
+    ungoogled-chromium
     bash
     cifs-utils
     cryptsetup
