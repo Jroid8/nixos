@@ -13,6 +13,7 @@
     ./services
     ./fonts.nix
     ./packages.nix
+    ./theming.nix
   ];
 
   options = {

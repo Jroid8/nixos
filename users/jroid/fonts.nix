@@ -7,10 +7,10 @@
         "Vazirmatn"
       ];
       sansSerif = [
-        "Ubuntu"
+        "Ubuntu Sans"
         "Vazirmatn"
       ];
-      monospace = [ "Ubuntu Mono" ];
+      monospace = [ "Ubuntu Sans Mono" ];
     };
   };
   home.packages = with pkgs; [

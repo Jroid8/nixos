@@ -16,6 +16,7 @@
     wineWow64Packages.waylandFull
     winetricks
 
+    papirus-icon-theme
     liberation_ttf
   ];
 }
