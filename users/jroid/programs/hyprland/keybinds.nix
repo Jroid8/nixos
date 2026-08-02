@@ -77,6 +77,10 @@ in
           (mkLuaInline "hl.dsp.window.float({ action = \"toggle\" })")
         ]
         [
+          "SUPER + CTRL + U"
+          (mkLuaInline "hl.dsp.window.fullscreen({ action = \"toggle\" })")
+        ]
+        [
           "SUPER + Bracketleft"
           (hl_dsp "layout" "colresize -0.0625")
         ]
