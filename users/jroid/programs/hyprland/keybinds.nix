@@ -37,6 +37,7 @@ let
   grim = lib.getExe pkgs.grim;
   hyprctl = "${config.wayland.windowManager.hyprland.finalPackage}/bin/hyprctl";
   jq = lib.getExe pkgs.jq;
+  nvim = lib.getExe config.programs.nvf.finalPackage;
 in
 {
   wayland.windowManager.hyprland = {
@@ -63,7 +64,7 @@ in
         ]
         [
           "SUPER + Space"
-          (hl_dsp "exec_raw" "${rofi} -show run -modes run,drun,calc -show-icons -disable-history -case-smart -terse -calc-command 'echo -n '{result}' | wl-copy' -reuse-result")
+          (hl_dsp "exec_raw" "${rofi} -show drun -modes drun,run,calc -show-icons -disable-history -case-smart -terse -calc-command 'echo -n '{result}' | wl-copy' -reuse-result")
         ]
 
         # Quick Window Management
@@ -245,11 +246,11 @@ in
             ]
             [
               "N"
-              (hl_dsp "exec_raw" "${term} ${config.programs.nvf.finalPackage} +:SelectProject")
+              (hl_dsp "exec_raw" "${term} ${nvim} +:SelectProject")
             ]
             [
               "T"
-              (hl_dsp "exec_raw" "${term} -d Notes ${config.programs.nvf.finalPackage} index.norg")
+              (hl_dsp "exec_raw" "${term} -d Notes ${nvim} index.norg")
             ]
             [
               "F"
