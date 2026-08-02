@@ -2,19 +2,25 @@
   home.packages = with pkgs; [
     # GUI
     v2rayn
-    rofi
     satty
     localsend
 
     # CLI
+    dragon-drop
+    fastfetch
+    grim
     jq
+    lm_sensors
+    mpc
     nixfmt
     python3
     wl-clipboard
-    fastfetch
-    grim
-    lm_sensors
-    mpc
+
+    # Libreoffice
+    libreoffice-qt
+    hunspell
+    hunspellDicts.en-us
+    hunspellDicts.fa-ir
 
     # Art
     blender
