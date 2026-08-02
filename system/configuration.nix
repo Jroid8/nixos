@@ -86,6 +86,7 @@
   networking = {
     hostName = "omen";
     networkmanager.enable = true;
+    firewall.enable = false;
   };
 
   time.timeZone = "Asia/Tehran";
