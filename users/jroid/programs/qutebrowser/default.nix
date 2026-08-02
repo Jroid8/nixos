@@ -21,7 +21,6 @@
     settings = {
       hints.find_implementation = "javascript";
       qt.chromium.process_model = "process-per-site";
-      scrolling.smooth = true;
       editor.command = [
         (lib.getExe config.terminal-emulator)
         (lib.getExe config.programs.nvf.settings.vim.build.finalPackage)
