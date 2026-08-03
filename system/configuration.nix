@@ -47,10 +47,7 @@
     "/boot" = {
       device = "/dev/disk/by-uuid/025F-70BD";
       fsType = "vfat";
-      options = [
-        "fmask=0022"
-        "dmask=0022"
-      ];
+      options = [ "umask=0022" ];
     };
   };
   swapDevices = [ { device = "/dev/disk/by-uuid/ffd87ad8-cdd8-4c66-a6f4-8fc3afa63741"; } ];
@@ -91,9 +88,16 @@
   # Nix
   nix = {
     settings = {
+      auto-optimise-store = true;
       experimental-features = [
         "nix-command"
         "flakes"
+      ];
+      substituters = [
+        "https://cache.nixos-cuda.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       ];
     };
     gc = {
@@ -102,7 +106,15 @@
       options = "--delete-older-than 7d";
     };
   };
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    cudaCapabilities = [
+      "8.6"
+      "8.0"
+    ];
+    cudaForwardCompat = true;
+    cudaSupport = true;
+  };
 
   # Users
   users = {
