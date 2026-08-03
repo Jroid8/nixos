@@ -26,12 +26,12 @@ in
           desc = "Open $SHELL here";
         }
         {
-          on = [ "<A-d>" ];
+          on = [ "<C-d>" ];
           run = "shell -- ${pkgs.dragon-drop} -T %s";
           desc = "drag and drop selected";
         }
         {
-          on = [ "<A-D>" ];
+          on = [ "<C-D>" ];
           run = "shell -- ${pkgs.dragon-drop} -T -A %s";
           desc = "drag and drop all at once";
         }
