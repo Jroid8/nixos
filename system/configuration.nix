@@ -1,9 +1,11 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./doas.nix
+    ./filesystems.nix
     ./greet.nix
     ./hardware.nix
+    ./nix-settings.nix
     ./packages.nix
     ./programs.nix
     ./services
@@ -26,33 +28,6 @@
     kernelModules = [ "kvm-intel" ];
   };
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-uuid/093572c0-81dc-40a9-b7b4-1cc86173d2d2";
-      fsType = "btrfs";
-      options = [
-        "subvol=root"
-        "compress=zstd"
-      ];
-    };
-    "/nix" = {
-      device = "/dev/disk/by-uuid/093572c0-81dc-40a9-b7b4-1cc86173d2d2";
-      fsType = "btrfs";
-      options = [
-        "subvol=nix"
-        "compress=zstd"
-        "noatime"
-      ];
-    };
-    "/boot" = {
-      device = "/dev/disk/by-uuid/025F-70BD";
-      fsType = "vfat";
-      options = [ "umask=0022" ];
-    };
-  };
-  swapDevices = [ { device = "/dev/disk/by-uuid/ffd87ad8-cdd8-4c66-a6f4-8fc3afa63741"; } ];
-  boot.tmp.useZram = true;
-
   # GRUB
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -71,35 +46,13 @@
     firewall.enable = false;
   };
 
-  time.timeZone = "Asia/Tehran";
-
   # Locale
+  time.timeZone = "Asia/Tehran";
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocales = [ "fa_IR/UTF-8" ];
   };
 
-  # Nix
-  nix = {
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      substituters = [
-        "https://cache.nixos-cuda.org"
-      ];
-      trusted-public-keys = [
-        "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
-      ];
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-  };
   nixpkgs.config = {
     allowUnfree = true;
     cudaCapabilities = [
