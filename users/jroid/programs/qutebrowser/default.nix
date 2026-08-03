@@ -41,10 +41,6 @@
             "https://easylist-downloads.adblockplus.org/fanboy-social.txt"
           ];
         };
-        headers = {
-          user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3";
-          accept_language = "en-US,en;q=0.5";
-        };
         javascript.clipboard = "access-paste";
         local_content_can_access_remote_urls = true;
       };
