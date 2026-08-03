@@ -6,6 +6,7 @@
     ./greet.nix
     ./hardware.nix
     ./nix-settings.nix
+    ./nixpkgs.nix
     ./packages.nix
     ./programs.nix
     ./services
@@ -51,16 +52,6 @@
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocales = [ "fa_IR/UTF-8" ];
-  };
-
-  nixpkgs.config = {
-    allowUnfree = true;
-    cudaCapabilities = [
-      "8.6"
-      "8.0"
-    ];
-    cudaForwardCompat = true;
-    cudaSupport = true;
   };
 
   # Users
