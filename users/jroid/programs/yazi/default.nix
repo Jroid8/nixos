@@ -6,7 +6,7 @@
     enableBashIntegration = true;
     enableFishIntegration = true;
     plugins = {
-      inherit (pkgs.yaziPlugins) bookmarks mount;
+      inherit (pkgs.yaziPlugins) mount;
     };
   };
 }

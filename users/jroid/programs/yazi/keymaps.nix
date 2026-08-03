@@ -1,35 +1,16 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
-  rofi = config.custom-pkgs.rofi;
+  rofi = lib.getExe config.custom-pkgs.rofi;
 in
 {
   programs.yazi.keymap = {
     mgr = {
       prepend_keymap = [
-        {
-          on = [ "m" ];
-          run = "plugin bookmarks save";
-          desc = "Save current position as a bookmark";
-        }
-        {
-          on = [ "'" ];
-          run = "plugin bookmarks jump";
-          desc = "Jump to a bookmark";
-        }
-        {
-						/*nixfmt:disable*/
-            on = [ "b" "d" ];
-						/*nixfmt:enable*/
-          run = "plugin bookmarks delete";
-          desc = "Delete a bookmark";
-        }
-        {
-						/*nixfmt:disable*/
-            on = [ "b" "D" ];
-						/*nixfmt:enable*/
-          run = "plugin bookmarks delete_all";
-          desc = "Delete all bookmarks";
-        }
         {
           on = [ "M" ];
           run = "plugin mount";
