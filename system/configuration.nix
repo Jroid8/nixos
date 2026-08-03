@@ -3,13 +3,10 @@
   imports = [
     ./doas.nix
     ./greet.nix
+    ./hardware.nix
     ./packages.nix
-    ./prime.nix
     ./programs.nix
     ./services
-    "${inputs.hardware}/common/cpu/intel/comet-lake"
-    inputs.hardware.nixosModules.common-pc
-    inputs.hardware.nixosModules.common-pc-ssd
   ];
 
   system.stateVersion = "26.05";
@@ -28,12 +25,6 @@
     kernelParams = [ "amd_pstate=active" ];
     kernelModules = [ "kvm-intel" ];
   };
-
-  # Firmwares
-  hardware.firmware = with pkgs; [
-    linux-firmware
-    sof-firmware
-  ];
 
   fileSystems = {
     "/" = {

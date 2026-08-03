@@ -28,8 +28,6 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hardware.url = "github:nixos/nixos-hardware";
   };
 
   outputs =
