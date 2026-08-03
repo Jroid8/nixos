@@ -18,7 +18,10 @@ in
       ];
       append_keymap = [
         {
-          on = [ "!" ];
+          on = [
+            "!"
+            "s"
+          ];
           run = ''shell "$SHELL" --block'';
           desc = "Open $SHELL here";
         }
@@ -33,15 +36,12 @@ in
           desc = "drag and drop all at once";
         }
         {
-          on = [ "<A-g>" ];
+          on = [
+            "!"
+            "r"
+          ];
           run = ''shell -- ${rofi} -config filebrowser -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"'';
           desc = "Grid view";
-        }
-        {
-					/*nixfmt:disable*/
-					on = [ "g" "t" ];
-					/*nixfmt:enable*/
-          run = "cd /dev/shm";
         }
       ];
     };
@@ -52,9 +52,10 @@ in
         desc = "Cancel input";
       }
       {
-				/*nixfmt:disable*/
-				on = [ "j" "k" ];
-				/*nixfmt:enable*/
+        on = [
+          "j"
+          "k"
+        ];
         run = "close";
         desc = "Cancel input";
       }
