@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   programs.mpv = {
+    enable = true;
     config = {
-      vo = "vaapi";
       sid = "no";
       hwdec = "auto";
       ao = "pipewire";
