@@ -64,12 +64,6 @@
     };
   };
 
-  # Bluetooth
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-
   # Networking
   networking = {
     hostName = "omen";

@@ -5,6 +5,11 @@
   };
 
   hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
+
     enableRedistributableFirmware = true;
     firmware = with pkgs; [
       linux-firmware
@@ -14,7 +19,7 @@
     cpu.intel.updateMicrocode = true;
 
     graphics = {
-			enable = true;
+      enable = true;
       package = pkgs.xf86-video-intel;
       package32 = pkgs.driversi686Linux.xf86-video-intel;
       extraPackages = with pkgs; [
