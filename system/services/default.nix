@@ -4,6 +4,7 @@
   services = {
     tuned.enable = true;
     upower.enable = true;
+    udisks2.enable = true;
     kanata = {
       enable = true;
       keyboards.default = {
@@ -31,6 +32,7 @@
     };
   };
   systemd.services.tor.wantedBy = lib.mkForce [ ];
+
   nix.gc = {
     automatic = true;
     dates = "weekly";
