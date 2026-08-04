@@ -182,7 +182,7 @@
       key = "<A-f>";
       lua = true;
       desc = "Telescope find files";
-      action = /* lua */ ''require("telescope.builtin").find_files()'';
+      action = /* lua */ ''require("telescope.builtin").find_files'';
     }
     {
       mode = [
@@ -193,7 +193,7 @@
       key = "<A-b>";
       lua = true;
       desc = "Telescope find buffers";
-      action = /* lua */ ''require("telescope.builtin").buffers()'';
+      action = /* lua */ ''require("telescope.builtin").buffers'';
     }
     # TermBuf
     {
