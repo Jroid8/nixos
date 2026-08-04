@@ -9,6 +9,7 @@
     file
     fish
     gcc
+    lsof
     nix-output-monitor
     ripgrep
     ungoogled-chromium
