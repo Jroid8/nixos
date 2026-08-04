@@ -1,7 +1,7 @@
 { pkgs, lib, ... }: {
   boot = {
     initrd.kernelModules = [ "i915" ];
-    kernelParams = [ "i915.enable_guc=2" ];
+    kernelParams = [ "i915.enable_guc=3" ];
   };
 
   hardware = {
@@ -20,8 +20,6 @@
 
     graphics = {
       enable = true;
-      package = pkgs.xf86-video-intel;
-      package32 = pkgs.driversi686Linux.xf86-video-intel;
       extraPackages = with pkgs; [
         intel-media-driver
         intel-compute-runtime-legacy1
@@ -30,6 +28,10 @@
 
     nvidia = {
       open = true;
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
       prime = {
         intelBusId = "PCI:0@0:2:0";
         nvidiaBusId = "PCI:1@0:0:0";
@@ -41,10 +43,14 @@
     };
   };
 
-  services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
 
   environment = {
     variables = {
+      LIBVA_DRIVER_NAME = "iHD";
       __EGL_VENDOR_LIBRARY_FILENAMES = "${pkgs.mesa.out}/share/glvnd/egl_vendor.d/50_mesa.json";
       VK_DRIVER_FILES = "${pkgs.mesa.out}/share/vulkan/icd.d/intel_icd.x86_64.json";
       __GLX_VENDOR_LIBRARY_NAME = "mesa";
@@ -64,6 +70,10 @@
       })
     ];
   };
+
+  services.udev.extraRules = ''
+    KERNEL=="card*", KERNELS=="0000:00:02.0", SUBSYSTEM=="drm", SUBSYSTEMS=="pci", SYMLINK+="dri/intel-igpu"
+  '';
 
   specialisation = {
     battery-saver.configuration = {
@@ -98,6 +108,7 @@
           finegrained = lib.mkForce false;
         };
       };
+      services.xserver.videoDrivers = lib.mkForce [ "modesetting" ];
     };
   };
 }
