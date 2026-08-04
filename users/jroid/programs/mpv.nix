@@ -1,6 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   programs.mpv = {
     enable = true;
+    package = pkgs.mpv.override {
+      inherit (inputs.self.packages) mpv-unwrapped;
+      scripts = [ pkgs.mpvScripts.mpris ];
+    };
     config = {
       sid = "no";
       hwdec = "auto";
@@ -25,6 +29,5 @@
         hwdec = "nvdec";
       };
     };
-    scripts = [ pkgs.mpvScripts.mpris ];
   };
 }

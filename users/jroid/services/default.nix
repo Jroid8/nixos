@@ -1,4 +1,4 @@
-{
+{ pkgs-cuda, ... }: {
   imports = [
     ./mpd.nix
   ];
@@ -30,7 +30,7 @@
     };
     ollama = {
       enable = true;
-      acceleration = "cuda";
+      package = pkgs-cuda.ollama;
     };
     ssh-agent.enable = true;
     playerctld.enable = true;
