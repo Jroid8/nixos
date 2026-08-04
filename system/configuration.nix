@@ -63,7 +63,7 @@
       extraGroups = [ "wheel" ];
       shell = pkgs.fish;
     };
-    groups.jroid.gid = 1000;
+    groups.jroid.gid = 990;
   };
 
   environment.pathsToLink = [
