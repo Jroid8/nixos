@@ -15,6 +15,7 @@
     };
     settings = {
       GTK.application_prefer_dark_theme = true;
+      background.path = builtins.toString pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src;
     };
     extraCss = /* css */ ''
       picture {
