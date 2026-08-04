@@ -56,13 +56,14 @@
   # Users
   users = {
     users.jroid = {
+      uid = 1000;
       isNormalUser = true;
       initialPassword = "12345";
       group = "jroid";
       extraGroups = [ "wheel" ];
       shell = pkgs.fish;
     };
-    groups.jroid = { };
+    groups.jroid.gid = 1000;
   };
 
   environment.pathsToLink = [
