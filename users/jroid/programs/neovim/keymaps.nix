@@ -172,6 +172,29 @@
         end
       '';
     }
+    # Telescope
+    {
+      mode = [
+        "n"
+        "i"
+        "t"
+      ];
+      key = "<A-f>";
+      lua = true;
+      desc = "Telescope find files";
+      action = /* lua */ ''require("telescope.builtin").find_files()'';
+    }
+    {
+      mode = [
+        "n"
+        "i"
+        "t"
+      ];
+      key = "<A-b>";
+      lua = true;
+      desc = "Telescope find buffers";
+      action = /* lua */ ''require("telescope.builtin").buffers()'';
+    }
     # TermBuf
     {
       mode = "n";
@@ -206,7 +229,7 @@
         	require('neo-tree.command').execute({
         		reveal_file = reveal_file,
         		reveal_force_cwd = true,
-						toggle = true,
+        		toggle = true,
         	})
         end
       '';
