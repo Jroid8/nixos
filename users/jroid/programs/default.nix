@@ -16,6 +16,7 @@
     ./yt-dlp.nix
   ];
   programs = {
+    zathura.enable = true;
     bash = {
       enable = true;
       shellAliases = import ./aliases.nix;
