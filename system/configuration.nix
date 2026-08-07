@@ -31,12 +31,12 @@
   # GRUB
   boot.loader = {
     efi.canTouchEfiVariables = true;
+    timeout = 2;
     grub = {
       enable = true;
       useOSProber = true;
       efiSupport = true;
       device = "nodev";
-      timeoutStyle = "hidden";
     };
   };
 
