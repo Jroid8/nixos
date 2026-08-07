@@ -31,7 +31,7 @@ for game in $games
     set entries $entries "$game\000icon\x1f$icon"
 end
 
-set selected (echo -en (string join '\n' $entries) | @rofi@ -dmenu)
+set selected (echo -en (string join '\n' $entries) | @rofi@ -dmenu -show-icons)
 if test -n "$selected"
     echo $selected >$HOME/.cache/lastgame
     echo $selected

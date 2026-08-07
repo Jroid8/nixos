@@ -120,7 +120,17 @@ in
       isExecutable = true;
       replacements = {
         fish = lib.getExe pkgs.fish;
-        rofi = "${config.custom-pkgs.rofi}/bin/rofi -config ${./game-selector-rofi.rasi}";
+        rofi = lib.getExe (
+          pkgs.rofi.override (_: {
+            theme = pkgs.replaceVarsWith {
+              name = "game-selector-theme.rasi";
+              src = ./game-selector-rofi.rasi;
+              replacements = {
+                mytheme = ../programs/rofi/mytheme.rasi;
+              };
+            };
+          })
+        );
       };
     })
     boot-to-windows

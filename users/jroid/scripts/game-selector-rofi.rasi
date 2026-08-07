@@ -1,6 +1,4 @@
-configuration {
-	disable-history: false;
-}
+@theme '@mytheme@'
 
 window {
 	width: 1231px;
