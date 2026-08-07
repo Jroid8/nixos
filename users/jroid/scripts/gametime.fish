@@ -4,7 +4,7 @@ test -n "$PATH"; and set -x PATH @path@ $PATH; or set -x PATH @path@
 if test -z "$argv"
     set game (game-selector)
     test -z "$game" && exit 1
-    cd "/mnt/windows/Users/Jroid/Games/$game"
+    cd "$HOME/.local/share/Games/$game"
     set -g gamecmd (cat gameexecargs | string split \n)
 else
     if test "$argv[1]" = -w
@@ -14,7 +14,8 @@ else
     set -g gamecmd $argv
 end
 
-systemctl stop dictd ollama
+set stop-services ollama mpd hyprpolkitagent
+systemctl stop --user $stop-services
 
 if set -q nowwrap
     $gamecmd
@@ -22,4 +23,4 @@ else
     prime-run gamemoderun $gamecmd
 end
 
-systemctl start dictd ollama
+systemctl start --user $stop-services
