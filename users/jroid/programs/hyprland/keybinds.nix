@@ -239,7 +239,7 @@ in
               (hl_dsp "exec_raw" "${mps} plsel")
             ]
             [
-              "ALT + P"
+              "SUPER + P"
               (hl_dsp "exec_raw" "${mps} msel")
             ]
             [
@@ -251,7 +251,7 @@ in
               (hl_dsp "exec_raw" browser)
             ]
             [
-              "ALT + E"
+              "SUPER + E"
               (hl_dsp "exec_raw" (lib.getExe pkgs.ungoogled-chromium))
             ]
             [
