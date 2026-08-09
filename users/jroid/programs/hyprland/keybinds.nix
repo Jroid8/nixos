@@ -64,7 +64,7 @@ in
         ]
         [
           "SUPER + Space"
-          (hl_dsp "exec_raw" "${rofi} -show drun -modes drun,run,calc -show-icons -disable-history -case-smart -terse -calc-command 'echo -n '{result}' | wl-copy' -reuse-result")
+          (hl_dsp "exec_raw" "${rofi} -show drun -modes drun,run,calc -disable-history -terse -calc-command 'echo -n '{result}' | wl-copy' -reuse-result")
         ]
 
         # Quick Window Management

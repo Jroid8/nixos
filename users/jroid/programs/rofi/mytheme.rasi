@@ -1,5 +1,10 @@
 @import "noctalia"
 
+configuration {
+	show-icons: true;
+	case-smart: true;
+}
+
 * {
 	background: hsl(0, 0%, 12%, 60%);
 	foreground: hsl(0, 0%, 100%, 100%);
