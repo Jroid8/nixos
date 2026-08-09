@@ -1,6 +1,14 @@
-{
+{ lib, ... }: {
   programs.nvf.settings.vim.autocomplete.blink-cmp = {
     enable = true;
+    mappings = lib.attrsets.genAttrs [
+      "close"
+      "confirm"
+      "next"
+      "previous"
+      "scrollDocsDown"
+      "scrollDocsUp"
+    ] (_: null);
     setupOpts = {
       cmdline.keymap.preset = "inherit";
       completion = {
