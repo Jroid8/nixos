@@ -14,8 +14,8 @@ else
     set -g gamecmd $argv
 end
 
-set stop-services ollama mpd hyprpolkitagent
-systemctl stop --user $stop-services
+set stopServices ollama mpd mpd-mpris hyprpolkitagent
+systemctl stop --user $stopServices
 
 if set -q nowwrap
     $gamecmd
@@ -23,4 +23,4 @@ else
     prime-run gamemoderun $gamecmd
 end
 
-systemctl start --user $stop-services
+systemctl start --user $stopServices
