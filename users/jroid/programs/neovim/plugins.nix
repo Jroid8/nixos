@@ -13,7 +13,6 @@ in
     utility.nix-develop.enable = true;
     utility.oil-nvim.enable = true;
     visuals.blink-indent.enable = true;
-    visuals.fidget-nvim.enable = true;
     visuals.nvim-web-devicons.enable = true;
     comments.comment-nvim = {
       enable = true;
