@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    ./userscripts
+    ./scripts
     ./colors.nix
     ./keybindings.nix
     ./search-engines.nix
@@ -15,12 +15,11 @@
   web-browser = pkgs.qutebrowser;
   programs.qutebrowser = {
     enable = true;
-    extraConfig = /* python */ ''
-      c.content.headers.custom = {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
-    '';
+    loadAutoconfig = true;
     settings = {
       hints.find_implementation = "javascript";
       qt.chromium.process_model = "process-per-site";
+      colors.webpage.darkmode.enabled = true;
       editor.command = [
         (lib.getExe config.terminal-emulator)
         (lib.getExe config.programs.nvf.settings.vim.build.finalPackage)
@@ -29,9 +28,13 @@
       ];
       content = {
         dns_prefetch = true;
-        geolocation = false;
+        local_content_can_access_remote_urls = true;
+
         canvas_reading = false;
+        geolocation = false;
+        javascript.clipboard = "access-paste";
         webgl = false;
+
         blocking = {
           method = "both";
           adblock.lists = [
@@ -41,10 +44,7 @@
             "https://easylist-downloads.adblockplus.org/fanboy-social.txt"
           ];
         };
-        javascript.clipboard = "access-paste";
-        local_content_can_access_remote_urls = true;
       };
-      colors.webpage.darkmode.enabled = true;
     };
   };
 }

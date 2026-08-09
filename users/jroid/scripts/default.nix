@@ -133,6 +133,19 @@ in
         );
       };
     })
+    (pkgs.runCommandLocal "qb-dump-cookies"
+      {
+        src = pkgs.fetchurl {
+          url = "https://gist.githubusercontent.com/guidocella/a272b6e68f9c44532b011f6596e95c61/raw/053ebb7de41a38a2ad6bfc2a37e85edafbd3f596/dump-cookies.sh";
+          hash = "sha256-4be8muHytmUIwWnOt/sR+Yz2YSwNruFeHkHprfloDQo=";
+        };
+      }
+      ''
+        mkdir $out
+        install -Dm755 "$src" "$out/bin/qb-dump-cookies"
+        substituteInPlace "$out/bin/qb-dump-cookies" --replace-fail sqlite3 "${lib.getExe pkgs.sqlite}"
+      ''
+    )
     boot-to-windows
     gametime
     mps
