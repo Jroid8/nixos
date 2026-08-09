@@ -3,5 +3,8 @@
     plugins = [ pkgs.rofi-calc ];
     theme = ./mytheme.rasi;
   });
-  home.packages = [ pkgs.nerd-fonts.jetbrains-mono config.custom-pkgs.rofi ];
+  home.packages = [
+    pkgs.nerd-fonts.jetbrains-mono
+    config.custom-pkgs.rofi
+  ];
 }
