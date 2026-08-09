@@ -9,6 +9,7 @@
     fish
     lsof
     nix-output-monitor
+    nps
     ripgrep
     vim
 
