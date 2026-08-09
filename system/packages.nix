@@ -15,9 +15,11 @@
 
     # Filesystem Utils
     android-file-transfer
+    archivemount
     cifs-utils
     cryptsetup
     rar
+    unzip
     zip
 
     # Gui
