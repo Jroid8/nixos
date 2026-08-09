@@ -17,10 +17,7 @@
   ];
   programs = {
     zathura.enable = true;
-    bash = {
-      enable = true;
-      shellAliases = import ./aliases.nix;
-    };
+    bash.enable = true;
     eza = {
       enable = true;
       enableBashIntegration = true;

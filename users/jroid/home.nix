@@ -51,6 +51,7 @@
       homeDirectory = "/home/jroid";
       stateVersion = "26.05";
     };
+
     programs.home-manager.enable = true;
 
     home.sessionVariables = {
@@ -58,5 +59,12 @@
       GRIM_DEFAULT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots";
       QT_QPA_PLATFORM = "wayland";
     };
+
+    home.shellAliases = (import ../../system/aliases.nix) // {
+      yt720 = "yt-dlp -f 'bv[height<=720][fps<=?30]+ba[abr<=?95][language*=?en]/bv[height<=720]+ba[language*=?en]'";
+      rfb = "rofi -show filebrowser -config filebrowser -filebrowser-directory";
+      tree = "eza --tree";
+    };
+    home.shell.enableBashIntegration = true;
   };
 }
