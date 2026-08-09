@@ -1,4 +1,10 @@
-{ pkgs, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
   imports = [
     ./autocmds.nix
     ./autocomplete.nix
@@ -36,4 +42,5 @@
       };
     };
   };
+  home.sessionVariables.EDITOR = lib.getExe config.programs.nvf.finalPackage;
 }
