@@ -5,14 +5,14 @@ cd $HOME/.local/share/qutebrowser/
 
 #### Clean History ####
 test -e history.sqlite-shm && exit 1
-60 * 60 * 24 * 3 = 259200
+# 60 * 60 * 24 * 3 = 259200
 set expirationTime (math (date +%s) - 259200)
 sqlite3 history.sqlite "DELETE FROM History WHERE atime <= $expirationTime"
 
 #### Clean Site Data ####
 cd webengine
-set sdcex $HOME/.config/qutebrowser/sitedata-clean-exceptions
-set exceptions (cat sdcex)
+set exceptionsFile $HOME/.config/qutebrowser/sitedata-clean-exceptions
+set exceptions (cat $exceptionsFile)
 
 set sqliteDelCond
 for ex in $exceptions
@@ -21,10 +21,10 @@ for ex in $exceptions
     end
 end
 set sqliteDelCond (string join " AND " $sqliteDelCond)
-set sqliteDelCond (string replace -a \* % $sqliteDelCond | string replace -a ? _ $sqliteDelCond)
+set sqliteDelCond (string replace -a \* % $sqliteDelCond | string replace -a ? _)
 
 sqlite3 Cookies "DELETE FROM cookies WHERE $sqliteDelCond"
-rm -r Favicons Favicons-journal 'Service Worker' WebStorage
+rm -r Favicons Favicons-journal 'Service Worker' WebStorage &>/dev/null
 
 cd IndexedDB
 for d in *
@@ -45,7 +45,7 @@ echo "import plyvel
 from fnmatch import fnmatch
 from urllib.parse import urlsplit
 
-exceptions = open('$sdcex').read().splitlines()
+exceptions = open('$exceptionsFile').read().splitlines()
 db = plyvel.DB('Local Storage/leveldb')
 wb = db.write_batch()
 for key, _ in db:

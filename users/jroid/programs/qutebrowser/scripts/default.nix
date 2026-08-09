@@ -9,7 +9,7 @@ let
       fish = lib.getExe pkgs.fish;
       path = lib.makeBinPath [
         pkgs.sqlite
-        pkgs.python314Packages.plyvel
+        (pkgs.python3.withPackages (pypkgs: [ pypkgs.plyvel ]))
       ];
     };
   };
