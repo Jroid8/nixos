@@ -38,6 +38,8 @@ let
   hyprctl = "${config.wayland.windowManager.hyprland.finalPackage}/bin/hyprctl";
   jq = lib.getExe pkgs.jq;
   nvim = lib.getExe config.programs.nvf.finalPackage;
+  toggle-service =
+    s: hl_dsp "exec_cmd" "systemctl is-active ${s} && systemctl stop ${s} || systemctl start ${s}";
 in
 {
   wayland.windowManager.hyprland = {
@@ -115,6 +117,10 @@ in
         [
           "SUPER + F11"
           (hl_dsp "exec_raw" "${noctalia} msg wallpaper-next")
+        ]
+        [
+          "SUPER + F10"
+          (toggle-service "--user hyprsunset")
         ]
 
         # Exit hyprland
