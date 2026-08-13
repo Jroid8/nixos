@@ -6,6 +6,7 @@
     ./greet.nix
     ./hardware.nix
     ./nix-settings.nix
+    ./overlays.nix
     ./packages.nix
     ./programs.nix
     ./services

@@ -26,7 +26,7 @@
     ungoogled-chromium
 
     # Wine
-    wineWow64Packages.waylandFull
+    wine
     winetricks
 
     # Look and Feel
