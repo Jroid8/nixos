@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }: {
+{
+  pkgs,
+  inputs,
+  ...
+}:
+{
   programs.mpv = {
     enable = true;
     package = pkgs.mpv.override {
@@ -6,27 +11,21 @@
       scripts = [ pkgs.mpvScripts.mpris ];
     };
     config = {
-      sid = "no";
       hwdec = "auto";
+
       ao = "pipewire";
-      audio-channels = "auto";
-      save-position-on-quit = true;
-      scale = "ewa_lanczossharp";
-      cscale = "ewa_lanczossharp";
-      tscale = "oversample";
-      input-ipc-server = "/tmp/mpvipc";
+      sid = "no";
       volume-max = 200;
+
+      input-ipc-server = "/tmp/mpvipc";
+      save-position-on-quit = true;
+
+      ytdl = true;
+      ytdl-format = "bv[height<=720][fps<=?30]+ba[abr<=?95][language*=?en]/bv[height<=720]+ba[language*=?en]";
     };
     scriptOpts = {
       osc = {
         timems = true;
-      };
-    };
-    profiles = {
-      gpu = {
-        vo = "gpu";
-        profile = "gpu-hq";
-        hwdec = "nvdec";
       };
     };
   };
