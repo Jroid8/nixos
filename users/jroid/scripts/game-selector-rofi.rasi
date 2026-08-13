@@ -1,8 +1,8 @@
 @theme '@mytheme@'
 
 window {
-	width: 1231px;
-	height: 546px;
+	width: 871px;
+	height: 564px;
 }
 
 listview {
@@ -15,8 +15,11 @@ listview {
 
 element {
 	orientation: vertical;
+	padding: 12px;
+	width: 260px;
 }
 
 element-icon {
 	size: 360px;
+	border-radius: inherit;
 }

@@ -6,7 +6,7 @@ configuration {
 }
 
 * {
-	background: hsl(0, 0%, 12%, 60%);
+	background: hsl(0, 0%, 12%, 75%);
 	foreground: hsl(0, 0%, 100%, 100%);
 	urgent: hsl(355, 95%, 44%, 100%);
 
