@@ -1,15 +1,14 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{ pkgs, inputs, ... }:
+let
+  pkg = pkgs.mpv.override {
+    inherit (inputs.self.packages) mpv-unwrapped;
+    scripts = [ pkgs.mpvScripts.mpris ];
+  };
+in
 {
   programs.mpv = {
     enable = true;
-    package = pkgs.mpv.override {
-      inherit (inputs.self.packages) mpv-unwrapped;
-      scripts = [ pkgs.mpvScripts.mpris ];
-    };
+    package = pkg;
     config = {
       hwdec = "auto";
 
@@ -29,4 +28,5 @@
       };
     };
   };
+  xdg.mimeApps.defaultApplicationPackages = [ pkg ];
 }

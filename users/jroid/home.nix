@@ -66,5 +66,7 @@
       tree = "eza --tree";
     };
     home.shell.enableBashIntegration = true;
+
+    xdg.mimeApps.enable = true;
   };
 }

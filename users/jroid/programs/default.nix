@@ -14,9 +14,9 @@
     ./mpv.nix
     ./v2rayn.nix
     ./yt-dlp.nix
+    ./zathura.nix
   ];
   programs = {
-    zathura.enable = true;
     bash.enable = true;
     eza = {
       enable = true;
