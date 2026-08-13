@@ -9,6 +9,7 @@
     (with pkgs; [
       # GUI
       localsend
+      qbittorrent
       satty
 
       # CLI
