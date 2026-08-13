@@ -26,13 +26,13 @@ in
           desc = "Open $SHELL here";
         }
         {
-          on = [ "<C-d>" ];
-          run = "shell -- ${pkgs.dragon-drop} -T %s";
+          on = [ "<A-d>" ];
+          run = "shell -- ${lib.getExe pkgs.dragon-drop} -T %s";
           desc = "drag and drop selected";
         }
         {
-          on = [ "<C-D>" ];
-          run = "shell -- ${pkgs.dragon-drop} -T -A %s";
+          on = [ "<A-D>" ];
+          run = "shell -- ${lib.getExe pkgs.dragon-drop} -T -A %s";
           desc = "drag and drop all at once";
         }
         {
