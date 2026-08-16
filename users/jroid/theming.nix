@@ -6,9 +6,13 @@
     package = pkgs.phinger-cursors;
     hyprcursor.enable = true;
   };
-  gtk.iconTheme = {
-    package = pkgs.papirus-icon-theme;
-    name = "Papirus-Dark";
+  gtk = {
+    enable = true;
+    theme.name = "Adwaita-dark";
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
+    };
   };
   qt.platformTheme = "qtct";
 }
