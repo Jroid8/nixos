@@ -5,7 +5,7 @@
     autotagHtml = true;
     textobjects.enable = true;
     filetypeMappings = { };
-    indent.excludes = [ ];
+    indent.enable = true;
     grammars = with pkgs.vimPlugins.nvim-treesitter.grammarPlugins; [
       rust
       lua

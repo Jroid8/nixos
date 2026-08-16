@@ -29,6 +29,9 @@
       exrc = true;
       foldlevelstart = 99;
       shell = lib.getExe pkgs.fish;
+      indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()";
+      foldmethod = "expr";
+      foldexpr = "v:lua.vim.treesitter.foldexpr()";
     };
     # spellcheck = {
     #   programmingWordlist.enable = true;
