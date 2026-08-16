@@ -10,5 +10,6 @@
     privacy.hide_inactive = true;
     ram.glyph = "database";
     workspaces.display = "name";
+    date.format = "{:%a %d %b %T}";
   };
 }

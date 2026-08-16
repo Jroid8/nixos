@@ -15,7 +15,7 @@
       "tray"
       "notifications"
       "group:system"
-      "group:datetime"
+      "date"
     ];
     center = [ "workspaces" ];
     start = [
@@ -33,13 +33,6 @@
           padding = 8.0;
         })
         [
-          {
-            id = "datetime";
-            members = [
-              "date"
-              "time"
-            ];
-          }
           {
             id = "usage";
             members = [
