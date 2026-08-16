@@ -2,6 +2,7 @@
   config,
   lib,
   inputs,
+  pkgs,
   ...
 }:
 {
@@ -67,6 +68,14 @@
     };
     home.shell.enableBashIntegration = true;
 
-    xdg.mimeApps.enable = true;
+    xdg = {
+      portal = {
+        enable = true;
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-hyprland
+        ];
+      };
+      mimeApps.enable = true;
+    };
   };
 }
