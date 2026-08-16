@@ -37,16 +37,19 @@ in
       enable = true;
       treesitter.enable = true;
       setupOpts = {
-        "core.defaults".enable = true;
-        "core.concealer" = { };
-        "core.keybinds" = {
-          config = {
-            default_keybinds = false;
+        load = {
+          "core.defaults".enable = true;
+          "core.concealer" = { };
+          "core.keybinds" = {
+            config = {
+              default_keybinds = false;
+            };
           };
+          "core.highlights" = { };
+          "core.export" = { };
+          "core.export.markdown" = { };
+          "core.esupports.indent" = { };
         };
-        "core.highlights" = { };
-        "core.export" = { };
-        "core.export.markdown" = { };
       };
     };
     statusline.lualine.enable = true;
