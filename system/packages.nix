@@ -9,11 +9,13 @@
     fish
     lsof
     nix-output-monitor
+    nix-tree
     nps
     ripgrep
     vim
 
     # Filesystem Utils
+    _7zz
     android-file-transfer
     archivemount
     cifs-utils
@@ -23,6 +25,7 @@
     zip
 
     # Gui
+    nix-visualize
     ungoogled-chromium
 
     # Wine
