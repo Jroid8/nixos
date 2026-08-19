@@ -32,7 +32,7 @@
   # GRUB
   boot.loader = {
     efi.canTouchEfiVariables = true;
-    timeout = 2;
+    timeout = 1;
     grub = {
       enable = true;
       useOSProber = true;
