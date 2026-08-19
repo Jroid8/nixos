@@ -32,6 +32,7 @@
       indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()";
       foldmethod = "expr";
       foldexpr = "v:lua.vim.treesitter.foldexpr()";
+      formatexpr = "v:lua.require'conform'.formatexpr()";
     };
     # spellcheck = {
     #   programmingWordlist.enable = true;
