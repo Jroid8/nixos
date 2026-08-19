@@ -3,7 +3,6 @@
     enableTreesitter = true;
     enableFormat = true;
 
-    assembly.enable = true;
     clang.enable = true;
     fish.enable = true;
     glsl.enable = true;
@@ -13,6 +12,11 @@
     python.enable = true;
     typescript.enable = true;
 
+    assembly = {
+			enable = true;
+			lsp.enable = false;
+			treesitter.enable = false;
+		};
     css = {
       enable = true;
       format.enable = true;
