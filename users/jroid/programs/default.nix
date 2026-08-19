@@ -1,11 +1,12 @@
 { pkgs, config, ... }: {
   imports = [
+    ./librewolf
     ./hyprland
     ./neovim
     ./noctalia
+    ./qutebrowser
     ./rofi
     ./yazi
-    ./qutebrowser
     ./equibop.nix
     ./feh.nix
     ./fish.nix

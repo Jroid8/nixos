@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -12,7 +11,6 @@
     ./search-engines.nix
   ];
 
-  web-browser = pkgs.qutebrowser;
   programs.qutebrowser = {
     enable = true;
     loadAutoconfig = true;

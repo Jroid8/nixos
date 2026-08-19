@@ -29,6 +29,10 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -38,6 +42,7 @@
       home-manager,
       nix-index-database,
       nixpkgs-cuda,
+      nur,
       ...
     }@inputs:
     let
@@ -61,6 +66,7 @@
           modules = [
             ./system/configuration.nix
             nix-index-database.nixosModules.default
+            nur.modules.nixos.default
             home-manager.nixosModules.home-manager
             {
               home-manager = {
