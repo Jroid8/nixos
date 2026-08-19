@@ -11,16 +11,4 @@
       }
     '';
   };
-  systemd.user.services = {
-    mps-init = {
-      Unit = {
-        Description = "Setup MPD";
-        After = "mpd.service";
-      };
-      Service = {
-        Type = "exec";
-        ExecStart = "${config.custom-pkgs.mps} init";
-      };
-    };
-  };
 }
