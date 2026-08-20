@@ -116,7 +116,7 @@ in
         ]
         [
           "SUPER + F11"
-          (hl_dsp "exec_raw" "${noctalia} msg wallpaper-next")
+          (hl_dsp "exec_raw" "${noctalia} msg wallpaper-random")
         ]
         [
           "SUPER + F10"
