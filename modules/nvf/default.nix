@@ -22,6 +22,8 @@
   ];
   programs.nvf = {
     enable = true;
+    enableManpages = true;
+    defaultEditor = true;
     settings.vim = {
       vimAlias = false;
       viAlias = false;
