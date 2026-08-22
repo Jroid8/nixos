@@ -1,8 +1,8 @@
 { pkgs, config, ... }:
 {
   imports = [
+    ./extensions
     ./aboutconfig.nix
-    ./extensions.nix
     ./search-engines.nix
   ];
 
