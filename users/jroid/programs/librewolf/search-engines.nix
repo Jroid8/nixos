@@ -1,6 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   programs.librewolf.profiles.default.search = {
     force = true;
+    default = "policy-DuckDuckGo Lite";
+    privateDefault = "policy-DuckDuckGo Lite";
     engines = {
       nix-packages = {
         name = "Nix Packages";
@@ -23,9 +25,12 @@
         ];
       };
       wikipedia.definedAliases = [ "wi" ];
-
-      bing.metaData.hidden = true;
-      mojeek.metaData.hidden = true;
-    };
+    }
+    // (lib.attrsets.genAttrs' [ "policy-MetaGer" "policy-Mojeek" ] (id: {
+      name = id;
+      value = {
+        metaData.hidden = true;
+      };
+    }));
   };
 }
