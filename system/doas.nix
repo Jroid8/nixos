@@ -17,4 +17,7 @@
       }
     ];
   };
+
+	security.sudo.enable = false;
+	environment.systemPackages = [pkgs.doas-sudo-shim];
 }
