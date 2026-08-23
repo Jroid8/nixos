@@ -1,15 +1,10 @@
 { pkgs, ... }:
 {
   imports = [
-    ./doas.nix
     ./filesystems.nix
-    ./greet.nix
     ./hardware.nix
-    ./nix-settings.nix
-    ./overlays.nix
-    ./packages.nix
-    ./programs.nix
-    ./services
+		./packages.nix
+		./programs.nix
   ];
 
   system.stateVersion = "26.05";
