@@ -45,7 +45,6 @@
         "path"
         "snippets"
       ];
-      sourcePlugins.spell.enable = true;
     };
   };
 }
