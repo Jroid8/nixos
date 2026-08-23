@@ -1,5 +1,10 @@
 { pkgs, ... }: {
-  environment.systemPackages = [ pkgs.nps ];
+  environment = {
+    systemPackages = [ pkgs.nps ];
+    shellAliases = {
+      nps = "nps -e";
+    };
+  };
   systemd = {
     services.refresh-nps-cache = {
       path = [ "/run/current-system/sw/" ];
