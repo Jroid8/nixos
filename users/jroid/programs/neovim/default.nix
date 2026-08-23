@@ -44,5 +44,4 @@
       };
     };
   };
-  home.sessionVariables.EDITOR = lib.getExe config.programs.nvf.finalPackage;
 }
