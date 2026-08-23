@@ -40,5 +40,16 @@ in
         end
       '';
     }
+    {
+      event = [ "FileType" ];
+      pattern = [ "nix" ];
+      callback = mkLuaInline /* lua */ ''
+        function()
+        	vim.bo.tabstop = 2
+        	vim.bo.shiftwidth = 2
+        	vim.bo.expandtab = true
+        end
+      '';
+    }
   ];
 }
