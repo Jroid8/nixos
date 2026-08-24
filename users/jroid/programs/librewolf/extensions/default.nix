@@ -16,6 +16,7 @@
         darkreader
         decentraleyes
         libredirect
+        single-file
       ];
     };
   };
