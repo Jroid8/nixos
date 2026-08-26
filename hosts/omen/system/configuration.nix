@@ -8,6 +8,7 @@
     ../../../modules/nixos/locale.nix
     ../../../modules/nixos/nbfc.nix
     ../../../modules/nixos/nix-gc.nix
+    ../../../modules/nixos/nix-settings.nix
     ../../../modules/nixos/nps.nix
     ../../../modules/nixos/tor.nix
     ./filesystems.nix
