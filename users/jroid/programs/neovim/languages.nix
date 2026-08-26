@@ -9,14 +9,13 @@
     html.enable = true;
     json.enable = true;
     lua.enable = true;
-    python.enable = true;
     typescript.enable = true;
 
     assembly = {
-			enable = true;
-			lsp.enable = false;
-			treesitter.enable = false;
-		};
+      enable = true;
+      lsp.enable = false;
+      treesitter.enable = false;
+    };
     css = {
       enable = true;
       format.enable = true;
@@ -61,6 +60,10 @@
     typst = {
       enable = true;
       extensions.typst-preview-nvim.enable = true;
+    };
+    python = {
+      enable = true;
+      lsp.servers = [ "ty" ];
     };
   };
 }
