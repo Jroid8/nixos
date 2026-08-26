@@ -2,11 +2,9 @@
 {
   environment.systemPackages = with pkgs; [
     # Commandline Utils
-    bash
     curl
     fd
     file
-    fish
     lsof
     nix-output-monitor
     nix-tree
