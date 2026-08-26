@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{
   imports = [ ./nbfc.nix ];
 
   services = {

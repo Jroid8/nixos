@@ -4,8 +4,8 @@
     ../../../modules/nixos/locale.nix
     ./filesystems.nix
     ./hardware.nix
-		./packages.nix
-		./programs.nix
+    ./packages.nix
+    ./programs.nix
     ./services.nix
   ];
 
