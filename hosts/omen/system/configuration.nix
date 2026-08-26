@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ../../../modules/nixos/locale.nix
     ./filesystems.nix
     ./hardware.nix
 		./packages.nix
@@ -48,13 +49,6 @@
     hostName = "omen";
     networkmanager.enable = true;
     firewall.enable = false;
-  };
-
-  # Locale
-  time.timeZone = "Asia/Tehran";
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocales = [ "fa_IR/UTF-8" ];
   };
 
   # Users
