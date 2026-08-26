@@ -1,7 +1,15 @@
 { pkgs, ... }:
 {
   imports = [
+    ../../../modules/nixos/aliases.nix
+    ../../../modules/nixos/doas.nix
+    ../../../modules/nixos/greet.nix
+    ../../../modules/nixos/kanata.nix
     ../../../modules/nixos/locale.nix
+    ../../../modules/nixos/nbfc.nix
+    ../../../modules/nixos/nix-gc.nix
+    ../../../modules/nixos/nps.nix
+    ../../../modules/nixos/tor.nix
     ./filesystems.nix
     ./hardware.nix
     ./packages.nix
