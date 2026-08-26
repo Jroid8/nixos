@@ -11,6 +11,7 @@
     ../../../modules/nixos/nix-settings.nix
     ../../../modules/nixos/nps.nix
     ../../../modules/nixos/tor.nix
+    ../../../modules/nixos/wine.nix
     ./filesystems.nix
     ./hardware.nix
     ./packages.nix

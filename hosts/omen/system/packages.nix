@@ -26,10 +26,6 @@
     nix-visualize
     ungoogled-chromium
 
-    # Wine
-    wine
-    winetricks
-
     # Look and Feel
     papirus-icon-theme
     liberation_ttf
