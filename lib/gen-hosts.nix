@@ -29,6 +29,9 @@ let
               inherit users;
               useGlobalPkgs = true;
               useUserPackages = true;
+              sharedModules = [
+                (inputs.import-tree ../modules/home-manager)
+              ];
               extraSpecialArgs = {
                 inherit inputs;
               };
