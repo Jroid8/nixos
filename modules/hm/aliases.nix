@@ -1,3 +1,3 @@
 {
-  home.shellAliases = (import ../nixos/aliases.nix).environment.shellAliases;
+  home.shellAliases = import ../../lib/shell-aliases.nix;
 }
