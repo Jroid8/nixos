@@ -8,6 +8,12 @@ let
       let
         hostPath = "../hosts/${hostName}";
         system = builtins.readFile "${hostPath}/system.txt" |> lib.strings.trim;
+        users =
+          builtins.readDir hostPath
+          |> lib.attrsets.filterAttrs (_: t: t == "directory")
+          |> builtins.attrNames
+          |> genAttrs (user: "${hostPath}/${user}/home.nix")
+          |> lib.attrsets.filterAttrs (_: builtins.pathExists);
       in
       lib.nixosSystem {
         inherit system;
@@ -20,16 +26,12 @@ let
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {
+              inherit users;
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = {
                 inherit inputs;
               };
-              users =
-                builtins.readDir hostPath
-                |> lib.attrsets.filterAttrs (n: t: t == "directory" && n != "system")
-                |> builtins.attrNames
-                |> genAttrs (user: "${hostPath}/${user}/home.nix");
             };
           }
         ];
