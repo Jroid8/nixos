@@ -4,6 +4,7 @@
     experimental-features = [
       "nix-command"
       "flakes"
+      "pipe-operators"
     ];
     substituters = [
       "https://cache.nixos-cuda.org"

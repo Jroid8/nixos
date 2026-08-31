@@ -33,21 +33,13 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    import-tree.url = "github:denful/import-tree";
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      nix-index-database,
-      nixpkgs-cuda,
-      nur,
-      ...
-    }@inputs:
+    { self, nixpkgs-cuda, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
       pkgs-cuda = import nixpkgs-cuda {
         inherit system;
         config = {
@@ -57,31 +49,7 @@
       };
     in
     {
-      nixosConfigurations = {
-        omen = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs pkgs-cuda;
-          };
-          modules = [
-            ./system/configuration.nix
-            nix-index-database.nixosModules.default
-            nur.modules.nixos.default
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = {
-                  inherit inputs pkgs-cuda;
-                };
-                backupCommand = "${pkgs.trash-cli}/bin/trash-put";
-                users.jroid = ./users/jroid/home.nix;
-              };
-            }
-          ];
-        };
-      };
+      nixosConfigurations = import lib/gen-hosts.nix inputs;
 
       packages = {
         ffmpeg-full = pkgs-cuda.ffmpeg-full.override {
@@ -92,4 +60,8 @@
         };
       };
     };
+
+  nixConfig = {
+    experimental-features = [ "pipe-operators" ];
+  };
 }
