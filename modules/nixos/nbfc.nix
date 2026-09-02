@@ -1,5 +1,12 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
+  cfg = config.custom.nbfc;
   nbfc-pkg = inputs.nbfc-linux.packages.x86_64-linux.default.overrideAttrs (oldAttrs: {
     nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.jq ];
     postInstall = (oldAttrs.postInstall or "") + /* sh */ ''
@@ -9,13 +16,23 @@ let
   });
 in
 {
-  environment.systemPackages = [ nbfc-pkg ];
-  systemd.services.nbfc_service = {
-    enable = true;
-    description = "NoteBook FanControl service";
-    serviceConfig.Type = "simple";
-    path = [ pkgs.kmod ];
-    script = "${nbfc-pkg}/bin/nbfc_service";
-    wantedBy = [ "multi-user.target" ];
+  options = {
+    custom.nbfc = {
+      enable = lib.mkEnableOption "customized nbfc";
+      package = lib.mkOption {
+        types = lib.types.package;
+      };
+    };
+  };
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = [ cfg.package ];
+    systemd.services.nbfc_service = {
+      enable = true;
+      description = "NoteBook FanControl service";
+      serviceConfig.Type = "simple";
+      path = [ pkgs.kmod ];
+      script = "${cfg.package}/bin/nbfc_service";
+      wantedBy = [ "multi-user.target" ];
+    };
   };
 }

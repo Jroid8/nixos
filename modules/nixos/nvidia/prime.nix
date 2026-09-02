@@ -5,19 +5,22 @@
   ...
 }:
 let
-  cfg = config.hardware.nvidia.prime;
+  cfg = config.custom.nvidia.prime;
 in
 {
-  options.hardware.nvidia.prime = {
-    egl-vendor-library-filenames = lib.options.mkOption {
-      type = lib.types.pathInStore;
+  options = {
+    custom.nvidia-prime = {
+      enable = lib.mkEnableOption "customized nvidia prime";
+      egl-vendor-library-filenames-json = lib.options.mkOption {
+        type = lib.types.pathInStore;
+      };
+      vk-driver-files-json = lib.options.mkOption {
+        type = lib.types.pathInStore;
+      };
     };
-		vk-driver-files = lib.options.mkOption {
-			type = lib.types.pathInStore;
-		};
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     hardware.nvidia.prime.offload = {
       enable = true;
       enableOffloadCmd = false;

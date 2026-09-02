@@ -1,13 +1,19 @@
+{ config, lib, ... }:
+let
+  cfg = config.custom.nvf;
+in
 {
-  programs.nvf.settings.vim.formatter.conform-nvim = {
-    enable = true;
-    presets = {
-      asmfmt.enable = true;
-      black.enable = true;
-      stylua.enable = true;
-      typstyle.enable = true;
-      nixfmt.enable = true;
-      prettier.enable = true;
+  config = lib.mkIf cfg.enable {
+    programs.nvf.settings.vim.formatter.conform-nvim = {
+      enable = true;
+      presets = {
+        asmfmt.enable = true;
+        black.enable = true;
+        stylua.enable = true;
+        typstyle.enable = true;
+        nixfmt.enable = true;
+        prettier.enable = true;
+      };
     };
   };
 }

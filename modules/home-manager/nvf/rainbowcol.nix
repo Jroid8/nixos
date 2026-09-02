@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 let
 	/*nixfmt:disable*/
   hsvToRgb = { h, s, v }:
@@ -23,18 +23,21 @@ let
 	rgbToHex = {r, g, b}: "#${toHexString(r)}${toHexString(g)}${toHexString(b)}";
 	hsvToRgbHex = rgb: rgbToHex (hsvToRgb rgb);
 	/*nixfmt:enable*/
+  cfg = config.custom.nvf;
 in
 {
-  programs.nvf.settings.vim.highlight = builtins.listToAttrs (
-    builtins.map (i: {
-      name = "rainbowcol${builtins.toString i}";
-      value = {
-        fg = hsvToRgbHex {
-          h = i / 6.0;
-          s = 0.35;
-          v = 0.8;
+  config = lib.mkIf cfg.enable {
+    programs.nvf.settings.vim.highlight = builtins.listToAttrs (
+      builtins.map (i: {
+        name = "rainbowcol${builtins.toString i}";
+        value = {
+          fg = hsvToRgbHex {
+            h = i / 6.0;
+            s = 0.35;
+            v = 0.8;
+          };
         };
-      };
-    }) (lib.lists.range 0 5)
-  );
+      }) (lib.lists.range 0 5)
+    );
+  };
 }
