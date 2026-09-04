@@ -21,7 +21,7 @@ gen() {
 }
 
 plsel() {
-	pl=$(ls $PL | cut -d . -f 1 | rofi -dmenu -no-custom -multi-select)
+	pl=$(ls $PL | cut -d . -f 1 | dmenu -no-custom -multi-select)
 	[[ -z $pl ]] && exit
 	mpc clear
 	xargs -I{} mpc load "{}" <<< $pl
@@ -29,7 +29,7 @@ plsel() {
 }
 
 msel() {
-	m=$(ls $MU | rofi -dmenu -no-custom -multi-select)
+	m=$(ls $MU | dmenu -no-custom -multi-select)
 	[[ -z $m ]] && exit
 	xargs -I{} mpc insert "{}" <<< $m
 	mpc next

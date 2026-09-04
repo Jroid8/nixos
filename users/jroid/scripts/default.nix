@@ -24,37 +24,6 @@ let
       wait $pid
     '';
   };
-  mps = (
-    pkgs.replaceVarsWith {
-      name = "mps";
-      src = ./mps.sh;
-      dir = "bin";
-      isExecutable = true;
-      replacements = {
-        runtimeShell = pkgs.runtimeShell;
-        path = lib.makeBinPath [
-          config.custom-pkgs.rofi
-          pkgs.mpc
-          pkgs.coreutils
-          pkgs.findutils
-        ];
-      };
-    }
-  );
-  gametime = pkgs.replaceVarsWith {
-    name = "gametime";
-    src = ./gametime.fish;
-    dir = "bin";
-    isExecutable = true;
-    replacements = {
-      fish = lib.getExe pkgs.fish;
-      path = lib.makeBinPath [
-        pkgs.coreutils
-        pkgs.systemd
-        pkgs.gamemode
-      ];
-    };
-  };
   boot-to-windows = pkgs.writeShellApplication {
     name = "boot-to-windows";
     runtimeInputs = [
@@ -98,41 +67,6 @@ in
       ''
     )
     (pkgs.writers.writeFishBin "tarzstdtest" "tar -cf - $argv[1] | zstd -9 --long -c | wc -c | numfmt --to=si")
-    (pkgs.replaceVarsWith {
-      name = "embed-thumbnail";
-      src = ./embed-thumbnail.sh;
-      dir = "bin";
-      isExecutable = true;
-      replacements = {
-        runtimeShell = pkgs.runtimeShell;
-        path = lib.makeBinPath [
-          pkgs.coreutils
-          pkgs.imagemagick
-          pkgs.mkvtoolnix-cli
-          (pkgs.python314.withPackages (ps: [ ps.mutagen ]))
-        ];
-      };
-    })
-    (pkgs.replaceVarsWith {
-      name = "game-selector";
-      src = ./game-selector.fish;
-      dir = "bin";
-      isExecutable = true;
-      replacements = {
-        fish = lib.getExe pkgs.fish;
-        rofi = lib.getExe (
-          pkgs.rofi.override (_: {
-            theme = pkgs.replaceVarsWith {
-              name = "game-selector-theme.rasi";
-              src = ./game-selector-rofi.rasi;
-              replacements = {
-                mytheme = ../programs/rofi/mytheme.rasi;
-              };
-            };
-          })
-        );
-      };
-    })
     (pkgs.runCommandLocal "qb-dump-cookies"
       {
         src = pkgs.fetchurl {
