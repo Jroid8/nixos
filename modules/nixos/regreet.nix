@@ -5,9 +5,14 @@
   ...
 }:
 let
-  cfg = config.custom.doas;
+  cfg = config.custom.regreet;
 in
 {
+  options = {
+    custom.regreet = {
+      enable = lib.mkEnableOption "customized doas";
+    };
+  };
   config = lib.mkIf cfg.enable {
     programs.regreet = {
       enable = true;
