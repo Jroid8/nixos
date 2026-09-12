@@ -7,7 +7,8 @@
 }:
 let
   cfg = config.custom.nbfc;
-  nbfc-pkg = inputs.nbfc-linux.packages.x86_64-linux.default.overrideAttrs (oldAttrs: {
+  nbfc-pkg = inputs.nbfc-linux.pkackages.x86_64-linux.default;
+  omen-pkg = nbfc-pkg.overrideAttrs (oldAttrs: {
     nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.jq ];
     postInstall = (oldAttrs.postInstall or "") + /* sh */ ''
       echo '{"SelectedConfigId": "HP Omen 16 n0xxx GPU disabled"}' > $out/etc/nbfc/nbfc.json
@@ -19,19 +20,19 @@ in
   options = {
     custom.nbfc = {
       enable = lib.mkEnableOption "customized nbfc";
-      package = lib.mkOption {
-        types = lib.types.package;
-      };
+      omen16-b0xxx-patch = lib.mkEnableOption "patch for HP Omen 16-b0xxx";
     };
   };
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [ cfg.package ];
     systemd.services.nbfc_service = {
       enable = true;
       description = "NoteBook FanControl service";
       serviceConfig.Type = "simple";
       path = [ pkgs.kmod ];
-      script = "${cfg.package}/bin/nbfc_service";
+      script = lib.mkMerge [
+        (lib.mkIf cfg.omen16-b0xxx-patch (lib.getExe' omen-pkg "nbfc_service"))
+        (lib.mkIf (!cfg.omen16-b0xxx-patch) (lib.getExe' nbfc-pkg "nbfc_service"))
+      ];
       wantedBy = [ "multi-user.target" ];
     };
   };
