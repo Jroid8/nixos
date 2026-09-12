@@ -5,6 +5,7 @@
   coreutils,
   systemd,
   gamemode,
+  game-selector
 }:
 replaceVarsWith {
   name = "gametime";
@@ -17,6 +18,7 @@ replaceVarsWith {
       coreutils
       systemd
       gamemode
+      game-selector
     ];
   };
 }

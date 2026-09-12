@@ -14,10 +14,13 @@ let
           |> builtins.attrNames
           |> genAttrs (user: "${hostPath}/${user}/home.nix")
           |> lib.attrsets.filterAttrs (_: builtins.pathExists);
+        mypkgs = import ./my-packages.nix;
+        specialArgs = {
+          inherit inputs mypkgs;
+        };
       in
       lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
+        inherit system specialArgs;
         modules = [
           (inputs.import-tree ../modules/nixos)
           "${hostPath}/system/configuration.nix"
@@ -32,9 +35,7 @@ let
               sharedModules = [
                 (inputs.import-tree ../modules/home-manager)
               ];
-              extraSpecialArgs = {
-                inherit inputs;
-              };
+              extraSpecialArgs = specialArgs;
             };
           }
         ];

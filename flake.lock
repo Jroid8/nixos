@@ -79,6 +79,21 @@
         "type": "github"
       }
     },
+    "import-tree": {
+      "locked": {
+        "lastModified": 1788467110,
+        "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
+        "owner": "denful",
+        "repo": "import-tree",
+        "rev": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
+        "type": "github"
+      },
+      "original": {
+        "owner": "denful",
+        "repo": "import-tree",
+        "type": "github"
+      }
+    },
     "mnw": {
       "locked": {
         "lastModified": 1780772958,
@@ -235,6 +250,7 @@
       "inputs": {
         "grim-hyprland": "grim-hyprland",
         "home-manager": "home-manager",
+        "import-tree": "import-tree",
         "nbfc-linux": "nbfc-linux",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
