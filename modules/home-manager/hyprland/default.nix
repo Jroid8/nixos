@@ -25,7 +25,7 @@ in
       rofi = lib.mkPackageOption pkgs "custom rofi" {
         default = [ "rofi" ];
       };
-      gametime = lib.mkPackageOption pkgs "gametime" { };
+      gamelauncher = lib.mkPackageOption pkgs "game launcher" { };
       mps = lib.mkPackageOption pkgs "mps" { };
       terminalEmulator = lib.mkPackageOption pkgs "terminal emulator" {
         default = [ "kitty" ];

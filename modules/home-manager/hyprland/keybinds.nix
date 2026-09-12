@@ -31,7 +31,7 @@ let
   scsh_edsv = "${lib.getExe pkgs.satty} -f - -o ~/Pictures/Screenshots/${scsh_name_fmt}.png";
 
   rofi = lib.getExe cfg.rofi;
-  gametime = lib.getExe cfg.gametime;
+  gamelauncher = lib.getExe cfg.gamelauncher;
   mps = lib.getExe cfg.mps;
   term = lib.getExe cfg.terminalEmulator;
   wpctl = "${pkgs.wireplumber.out}/bin/wpctl";
@@ -238,7 +238,7 @@ in
             bind = builtins.map mkArgs [
               [
                 "G"
-                (hl_dsp "exec_raw" gametime)
+                (hl_dsp "exec_raw" gamelauncher)
               ]
               [
                 "P"
