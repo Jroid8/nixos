@@ -11,6 +11,18 @@ in
   options = {
     custom.intel-rocketlake = {
       enable = lib.mkEnableOption "custom intel hardware config for rocketlake";
+      dri-symlink = lib.mkOption {
+        type = lib.types.nullOr lib.types.submodule {
+          options = {
+            path = lib.mkOption {
+              type = lib.types.nonEmptyStr;
+            };
+            pci-address = lib.mkOption {
+              type = lib.types.nonEmptyStr;
+            };
+          };
+        };
+      };
     };
   };
   config = lib.mkIf cfg.enable {
@@ -32,8 +44,9 @@ in
 
     environment.variables.LIBVA_DRIVER_NAME = "iHD";
 
-    services.udev.extraRules = ''
-      KERNEL=="card*", KERNELS=="0000:00:02.0", SUBSYSTEM=="drm", SUBSYSTEMS=="pci", SYMLINK+="dri/intel-igpu"
+    # 0000:00:02.0
+    services.udev.extraRules = lib.mkIf (cfg.dri-symlink != null) ''
+      KERNEL=="card*", KERNELS=="${cfg.dri-symlink.pci-address}", SUBSYSTEM=="drm", SUBSYSTEMS=="pci", SYMLINK+="${cfg.dri-symlink.path}"
     '';
   };
 }
