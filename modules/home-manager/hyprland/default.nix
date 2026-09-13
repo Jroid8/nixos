@@ -127,5 +127,9 @@ in
       '';
     };
     home.sessionVariables.AQ_DRM_DEVICES = cfg.aquamarine-drm-devices;
+    xdg.portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    };
   };
 }
