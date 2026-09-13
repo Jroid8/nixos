@@ -22,6 +22,10 @@ in
   options = {
     custom.hyprland = {
       enable = lib.mkEnableOption "customized hyprland";
+      aquamarine-drm-devices = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        default = null;
+      };
       rofi = lib.mkPackageOption pkgs "custom rofi" {
         default = [ "rofi" ];
       };
@@ -122,5 +126,6 @@ in
         end
       '';
     };
+    home.sessionVariables.AQ_DRM_DEVICES = cfg.aquamarine-drm-devices;
   };
 }

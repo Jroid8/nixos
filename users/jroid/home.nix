@@ -56,7 +56,6 @@
     programs.home-manager.enable = true;
 
     home.sessionVariables = {
-      AQ_DRM_DEVICES = "/dev/dri/intel-igpu";
       GRIM_DEFAULT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots";
       QT_QPA_PLATFORM = "wayland";
     };
