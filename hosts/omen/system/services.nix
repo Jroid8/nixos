@@ -1,4 +1,13 @@
 {
+  custom = {
+    tor.enable = true;
+    nix-gc.enable = true;
+
+    nbfc = {
+      enable = true;
+      omen16-b0xxx-patch = true;
+    };
+  };
   services = {
     tuned.enable = true;
     upower.enable = true;

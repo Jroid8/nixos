@@ -1,24 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
-  imports = [
-    ../../../modules/nixos/aliases.nix
-    ../../../modules/nixos/doas.nix
-    ../../../modules/nixos/greet.nix
-    ../../../modules/nixos/kanata.nix
-    ../../../modules/nixos/locale.nix
-    ../../../modules/nixos/nbfc.nix
-    ../../../modules/nixos/nix-gc.nix
-    ../../../modules/nixos/nix-settings.nix
-    ../../../modules/nixos/nps.nix
-    ../../../modules/nixos/tor.nix
-    ../../../modules/nixos/wine.nix
-    ./filesystems.nix
-    ./hardware.nix
-    ./packages.nix
-    ./programs.nix
-    ./services.nix
-  ];
-
   system.stateVersion = "26.05";
 
   # Kernel
@@ -79,4 +60,20 @@
     "/share/applications"
     "/share/xdg-desktop-portal"
   ];
+
+  # Nix
+  nixpkgs.overlays = [
+    inputs.grim-hyprland.overlays.default
+  ];
+
+  custom = {
+    aliases.enable = true;
+    doas.enable = true;
+    kanata.enable = true;
+    locale.enable = true;
+    nix-settings.enable = true;
+    nixos-cuda-cache.enable = true;
+    nps.enable = true;
+    regreet.enable = true;
+  };
 }
