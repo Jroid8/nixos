@@ -8,12 +8,6 @@ let
   cfg = config.custom.librewolf;
 in
 {
-  imports = [
-    ./history-cleaner.nix
-    ./tridactyl.nix
-    ./ublockorigin.nix
-  ];
-
   config = lib.mkIf cfg.enable {
     programs.librewolf.profiles.default = {
       settings = {
