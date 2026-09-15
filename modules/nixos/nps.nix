@@ -10,7 +10,7 @@
       enable = lib.mkEnableOption "customized nps";
     };
   };
-  config = config.custom.nps.enable {
+  config = lib.mkIf config.custom.nps.enable {
     environment = {
       systemPackages = [ pkgs.nps ];
       shellAliases = {

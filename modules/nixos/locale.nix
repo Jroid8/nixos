@@ -5,7 +5,7 @@
       enable = lib.mkEnableOption "customized locale";
     };
   };
-  config = lib.mkIf config.custom.locale {
+  config = lib.mkIf config.custom.locale.enable {
     time.timeZone = "Asia/Tehran";
     i18n = {
       defaultLocale = "en_US.UTF-8";

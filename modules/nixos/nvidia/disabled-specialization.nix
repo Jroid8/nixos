@@ -4,7 +4,7 @@
       enable = lib.mkEnableOption "disabled nvidia specialisation";
     };
   };
-  config = lib.mkIf config.custom.nvidia.disabled-specialization {
+  config = lib.mkIf config.custom.nvidia.disabled-specialization.enable {
     specialisation.battery-saver = {
       configuration = lib.mkIf config.hardware.nvidia.prime.offload.enable {
         system.nixos.tags = [ "battery-saver" ];
