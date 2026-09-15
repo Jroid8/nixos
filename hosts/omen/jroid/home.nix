@@ -1,4 +1,12 @@
 {
+  xdg = {
+    mimeApps.enable = true;
+  };
+
+  custom = {
+    global-fonts.enable = true;
+  };
+
   home = {
     username = "jroid";
     homeDirectory = "/home/jroid";
@@ -7,9 +15,5 @@
     sessionVariables = {
       QT_QPA_PLATFORM = "wayland";
     };
-  };
-
-  custom = {
-    global-fonts.enable = true;
   };
 }
