@@ -14,7 +14,7 @@ let
           |> builtins.attrNames
           |> genAttrs (user: hostPath + "/${user}/home.nix")
           |> lib.attrsets.filterAttrs (_: builtins.pathExists)
-          |> lib.attrsets.mapAttrs (p: ./. + p);
+          |> builtins.mapAttrs (_: p: /. + p);
         mypkgs = import ./my-packages.nix;
         specialArgs = {
           inherit inputs mypkgs;
