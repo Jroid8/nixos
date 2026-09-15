@@ -62,6 +62,6 @@
     };
 
   nixConfig = {
-    experimental-features = [ "pipe-operators" ];
+    experimental-features = [ "pipe-operators" "flakes" ];
   };
 }
