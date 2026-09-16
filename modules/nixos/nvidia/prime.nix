@@ -9,7 +9,7 @@ let
 in
 {
   options = {
-    custom.nvidia-prime = {
+    custom.nvidia.prime = {
       enable = lib.mkEnableOption "customized nvidia prime";
       egl-vendor-library-filenames-json = lib.options.mkOption {
         type = lib.types.pathInStore;
