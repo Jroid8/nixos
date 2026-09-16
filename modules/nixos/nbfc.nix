@@ -7,7 +7,7 @@
 }:
 let
   cfg = config.custom.nbfc;
-  nbfc-pkg = inputs.nbfc-linux.pkackages.x86_64-linux.default;
+  nbfc-pkg = inputs.nbfc-linux.packages.x86_64-linux.default;
   omen-pkg = nbfc-pkg.overrideAttrs (oldAttrs: {
     nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.jq ];
     postInstall = (oldAttrs.postInstall or "") + /* sh */ ''
