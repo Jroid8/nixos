@@ -1,4 +1,11 @@
 {
+  imports = [
+    ./packages.nix
+    ./programs.nix
+    ./services.nix
+    ./theming.nix
+  ];
+
   xdg = {
     mimeApps.enable = true;
   };

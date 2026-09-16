@@ -1,5 +1,13 @@
 { pkgs, inputs, ... }:
 {
+  imports = [
+    ./filesystems.nix
+    ./hardware.nix
+    ./packages.nix
+    ./programs.nix
+    ./services.nix
+  ];
+
   system.stateVersion = "26.05";
 
   # Kernel
