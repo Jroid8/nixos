@@ -9,7 +9,7 @@ let
 in
 {
   options = {
-    custom.git.enable = lib.mkEnableOption "custom global fonts";
+    custom.global-fonts.enable = lib.mkEnableOption "custom global fonts";
   };
   config = lib.mkIf cfg.enable {
     fonts.fontconfig = {

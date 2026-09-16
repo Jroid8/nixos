@@ -14,7 +14,7 @@ let
 in
 {
   options = {
-    custom.mpd.enable = lib.mkEnableOption "customized kitty";
+    custom.mpv.enable = lib.mkEnableOption "customized kitty";
   };
   config = lib.mkIf cfg.enable {
     programs.mpv = {

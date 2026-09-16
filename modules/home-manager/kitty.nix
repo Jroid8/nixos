@@ -6,7 +6,7 @@
 }:
 let cfg = config.custom.git; in {
   options = {
-    custom.git.enable = lib.mkEnableOption "customized kitty";
+    custom.kitty.enable = lib.mkEnableOption "customized kitty";
   };
   config = lib.mkIf cfg.enable {
     terminal-emulator = pkgs.kitty;
