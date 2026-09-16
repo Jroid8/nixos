@@ -12,16 +12,18 @@ in
     custom.intel-rocketlake = {
       enable = lib.mkEnableOption "custom intel hardware config for rocketlake";
       dri-symlink = lib.mkOption {
-        type = lib.types.nullOr lib.types.submodule {
-          options = {
-            path = lib.mkOption {
-              type = lib.types.nonEmptyStr;
+        type = lib.types.nullOr (
+          lib.types.submodule {
+            options = {
+              path = lib.mkOption {
+                type = lib.types.nonEmptyStr;
+              };
+              pci-address = lib.mkOption {
+                type = lib.types.nonEmptyStr;
+              };
             };
-            pci-address = lib.mkOption {
-              type = lib.types.nonEmptyStr;
-            };
-          };
-        };
+          }
+        );
       };
     };
   };
