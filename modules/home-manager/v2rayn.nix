@@ -9,7 +9,7 @@ let
 in
 {
   options = {
-    custom.v2rayn.enable = lib.mkEnableOptions "customized v2rayn";
+    custom.v2rayn.enable = lib.mkEnableOption "customized v2rayn";
   };
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [ v2rayn ];

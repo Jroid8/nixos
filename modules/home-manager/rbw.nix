@@ -9,7 +9,7 @@ let
 in
 {
   options = {
-    custom.rbw.enable = lib.mkEnableOptions "customized rbw";
+    custom.rbw.enable = lib.mkEnableOption "customized rbw";
   };
   config = lib.mkIf cfg.enable {
     programs.rbw = {

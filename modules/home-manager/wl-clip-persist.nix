@@ -4,7 +4,7 @@ let
 in
 {
   options = {
-    custom.wl-clip-persist.enable = lib.mkEnableOptions "customized wl-clip-persist";
+    custom.wl-clip-persist.enable = lib.mkEnableOption "customized wl-clip-persist";
   };
   config = lib.mkIf cfg.enable {
     services.wl-clip-persist = {

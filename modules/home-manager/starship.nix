@@ -4,7 +4,7 @@ let
 in
 {
   options = {
-    custom.starship.enable = lib.mkEnableOptions "customized starship";
+    custom.starship.enable = lib.mkEnableOption "customized starship";
   };
   config = lib.mkIf cfg.enable {
     programs.starship = {
