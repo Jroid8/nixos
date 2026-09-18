@@ -9,8 +9,7 @@ let cfg = config.custom.git; in {
     custom.kitty.enable = lib.mkEnableOption "customized kitty";
   };
   config = lib.mkIf cfg.enable {
-    terminal-emulator = pkgs.kitty;
-    home.packages = [ config.terminal-emulator ];
+    home.packages = [ pkgs.kitty ];
     programs.kitty = {
       enable = true;
       enableGitIntegration = true;
