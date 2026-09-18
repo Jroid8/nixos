@@ -1,8 +1,16 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  inputs,
+  ...
+}:
 let
   cfg = config.custom.noctalia;
 in
 {
+  imports = [
+    inputs.noctalia.homeModules.default
+  ];
   options = {
     custom.noctalia = {
       enable = lib.mkEnableOption "customized noctalia";

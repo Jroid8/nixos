@@ -2,12 +2,16 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }:
 let
   cfg = config.custom.nvf;
 in
 {
+  imports = [
+    inputs.nvf.homeManagerModules.default
+  ];
   options = {
     custom.nvf = {
       enable = lib.mkEnableOption "customized nvf";
