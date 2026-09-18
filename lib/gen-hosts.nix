@@ -8,6 +8,7 @@ let
       let
         hostPath = ./.. + "/hosts/${hostName}";
         system = builtins.readFile (hostPath + "/system.txt") |> lib.strings.trim;
+        pkgs = inputs.nixpkgs.legacyPackages.${system};
         users =
           builtins.readDir hostPath
           |> lib.attrsets.filterAttrs (_: t: t == "directory")
@@ -15,7 +16,7 @@ let
           |> genAttrs (user: hostPath + "/${user}/home.nix")
           |> lib.attrsets.filterAttrs (_: builtins.pathExists)
           |> builtins.mapAttrs (_: p: /. + p);
-        mypkgs = import ./my-packages.nix;
+        mypkgs = import ./my-packages.nix pkgs;
         specialArgs = {
           inherit inputs mypkgs;
         };
