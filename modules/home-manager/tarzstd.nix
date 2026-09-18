@@ -22,8 +22,10 @@ in
     };
   };
   config = lib.mkIf cfg.enable {
-    programs.mps.compressorPackage = mypkgs.tarzstd;
-    programs.mps.estimatorPackage = mypkgs.tarzstdtest;
+    programs.tarzstd = {
+      compressorPackage = mypkgs.tarzstd;
+      estimatorPackage = mypkgs.tarzstdtest;
+    };
     home.packages = [
       cfg.compressorPackage
       cfg.estimatorPackage
