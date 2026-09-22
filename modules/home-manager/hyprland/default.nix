@@ -27,7 +27,7 @@ in
         default = null;
       };
       rofi = lib.mkOption {
-        type = cmdOption;
+        type = lib.types.nonEmptyStr;
         default = lib.getExe pkgs.rofi;
       };
       gamelauncher = lib.mkOption {
