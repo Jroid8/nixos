@@ -1,20 +1,31 @@
 {
   pkgs,
-  inputs,
   config,
   lib,
+  pkgs-cuda,
   ...
 }:
 let
   cfg = config.custom.mpd;
   pkg = pkgs.mpv.override {
-    inherit (inputs.self.packages) mpv-unwrapped;
+    mpv-unwrapped =
+      if cfg.cuda then
+        pkgs-cuda.mpv-unwrapped.override {
+          ffmpeg = pkgs-cuda.ffmpeg-full.override {
+            withNvcodec = true;
+          };
+        }
+      else
+        pkgs.mpv-unwrapped;
     scripts = [ pkgs.mpvScripts.mpris ];
   };
 in
 {
   options = {
-    custom.mpv.enable = lib.mkEnableOption "customized kitty";
+    custom.mpv = {
+      enable = lib.mkEnableOption "customized mpv";
+      cuda = lib.mkEnableOption "mpv with cuda";
+    };
   };
   config = lib.mkIf cfg.enable {
     programs.mpv = {

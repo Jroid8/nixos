@@ -36,32 +36,14 @@
     import-tree.url = "github:denful/import-tree";
   };
 
-  outputs =
-    { self, nixpkgs-cuda, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs-cuda = import nixpkgs-cuda {
-        inherit system;
-        config = {
-          allowUnfree = true;
-          cudaSupport = true;
-        };
-      };
-    in
-    {
-      nixosConfigurations = import lib/gen-hosts.nix inputs;
-
-      packages = {
-        ffmpeg-full = pkgs-cuda.ffmpeg-full.override {
-          withNvcodec = true;
-        };
-        mpv-unwrapped = pkgs-cuda.mpv-unwrapped.override {
-          ffmpeg = self.packages.ffmpeg-full;
-        };
-      };
-    };
+  outputs = inputs: {
+    nixosConfigurations = import lib/gen-hosts.nix inputs;
+  };
 
   nixConfig = {
-    experimental-features = [ "pipe-operators" "flakes" ];
+    experimental-features = [
+      "pipe-operators"
+      "flakes"
+    ];
   };
 }

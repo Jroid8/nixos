@@ -36,6 +36,8 @@
     ])
     ++ [
       pkgs-cuda.blender
-      inputs.self.packages.ffmpeg-full
+      (pkgs-cuda.ffmpeg-full.override {
+        withNvcodec = true;
+      })
     ];
 }

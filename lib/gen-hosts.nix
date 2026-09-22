@@ -17,8 +17,15 @@ let
           |> lib.attrsets.filterAttrs (_: builtins.pathExists)
           |> builtins.mapAttrs (_: p: /. + p);
         mypkgs = import ./my-packages.nix pkgs;
+        pkgs-cuda = import inputs.nixpkgs-cuda {
+          inherit system;
+          config = {
+            allowUnfree = true;
+            cudaSupport = true;
+          };
+        };
         specialArgs = {
-          inherit inputs mypkgs;
+          inherit inputs mypkgs pkgs-cuda;
         };
       in
       lib.nixosSystem {
