@@ -21,9 +21,10 @@
     zathura.enable = true;
   };
   programs = {
-    home-manager.enable = true;
+    bash.enable = true;
     embed-thumbnail.enable = true;
     game-launching-tools.enable = true;
+    home-manager.enable = true;
     mps.enable = true;
     tarzstd.enable = true;
   };
