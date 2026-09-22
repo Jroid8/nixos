@@ -17,6 +17,6 @@ in
       enable = true;
       inherit (cfg) acceleration;
     };
-    environment.variables.OLLAMA_NOHISTORY = 1;
+    home.sessionVariables.OLLAMA_NOHISTORY = 1;
   };
 }
