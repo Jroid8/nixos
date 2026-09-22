@@ -9,16 +9,19 @@ let
 in
 {
   options = {
-    custom.rbw.enable = lib.mkEnableOption "customized rbw";
+    custom.rbw = {
+      enable = lib.mkEnableOption "customized rbw";
+      pinentry = lib.mkPackageOption pkgs "pinentry package to use" {
+        default = [ "pinentry-gtk2" ];
+      };
+    };
   };
   config = lib.mkIf cfg.enable {
     programs.rbw = {
       enable = true;
       settings = {
         email = "jroid8@tutanota.com";
-        pinentry = pkgs.pinentry-rofi.override (_: {
-          rofi = config.custom-pkgs.rofi;
-        });
+        inherit (cfg) pinentry;
       };
     };
   };
