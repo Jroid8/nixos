@@ -30,8 +30,6 @@ let
   scsh_name_fmt = "$(date '+%Y-%m-%d_%H-%M-%S')";
   scsh_edsv = "${lib.getExe pkgs.satty} -f - -o ~/Pictures/Screenshots/${scsh_name_fmt}.png";
 
-  rofi = lib.getExe cfg.rofi;
-  gamelauncher = lib.getExe cfg.gamelauncher;
   mps = lib.getExe cfg.mps;
   term = lib.getExe cfg.terminalEmulator;
   wpctl = "${pkgs.wireplumber.out}/bin/wpctl";
@@ -70,7 +68,7 @@ in
           ]
           [
             "SUPER + Space"
-            (hl_dsp "exec_raw" "${rofi} -show drun -modes drun,run,calc -disable-history -terse -calc-command 'echo -n '{result}' | wl-copy' -reuse-result")
+            (hl_dsp "exec_raw" "${cfg.rofi} -show drun -modes drun,run,calc -disable-history -terse -calc-command 'echo -n '{result}' | wl-copy' -reuse-result")
           ]
 
           # Quick Window Management
@@ -238,7 +236,7 @@ in
             bind = builtins.map mkArgs [
               [
                 "G"
-                (hl_dsp "exec_raw" gamelauncher)
+                (dspCmdInOpt cfg.gamelauncher)
               ]
               [
                 "P"

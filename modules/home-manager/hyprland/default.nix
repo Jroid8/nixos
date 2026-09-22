@@ -26,13 +26,19 @@ in
         type = lib.types.nullOr lib.types.str;
         default = null;
       };
-      rofi = lib.mkPackageOption pkgs "custom rofi" {
-        default = [ "rofi" ];
+      rofi = lib.mkOption {
+        type = cmdOption;
+        default = lib.getExe pkgs.rofi;
       };
-      gamelauncher = lib.mkPackageOption pkgs "game launcher" { };
-      mps = lib.mkPackageOption pkgs "mps" { };
-      terminalEmulator = lib.mkPackageOption pkgs "terminal emulator" {
-        default = [ "kitty" ];
+      gamelauncher = lib.mkOption {
+        type = cmdOption;
+      };
+      mps = lib.mkOption {
+        type = lib.types.nonEmptyStr;
+      };
+      terminalEmulator = lib.mkOption {
+        type = lib.types.nonEmptyStr;
+        default = lib.getExe pkgs.kitty;
       };
       wallpaperSwitch = lib.mkOption {
         type = cmdOption;
