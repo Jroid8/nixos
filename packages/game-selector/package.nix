@@ -17,7 +17,7 @@ replaceVarsWith {
           name = "game-selector-theme.rasi";
           src = ./game-selector-rofi.rasi;
           replacements = {
-            mytheme = ../programs/rofi/mytheme.rasi;
+            mytheme = ../themed-rofi/mytheme.rasi;
           };
         };
       })

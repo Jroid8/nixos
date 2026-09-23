@@ -12,7 +12,10 @@ in
   options = {
     programs.mps = {
       enable = lib.mkEnableOption "mps, jroid's mpd services";
-      dmenu = lib.mkPackageOption pkgs "dmenu program to use" { };
+      dmenuCmd = lib.mkOption {
+        type = lib.types.nonEmptyStr;
+        default = lib.getExe pkgs.dmenu;
+      };
       finalPackage = lib.mkOption {
         type = lib.types.package;
         readOnly = true;
@@ -21,7 +24,7 @@ in
   };
   config = lib.mkIf cfg.enable {
     programs.mps.finalPackage = mypkgs.mps.override {
-      inherit (cfg) dmenu;
+      inherit (cfg) dmenuCmd;
     };
     home.packages = [ cfg.finalPackage ];
   };

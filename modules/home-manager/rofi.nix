@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  mypkgs,
   ...
 }:
 let
@@ -18,10 +19,7 @@ in
     };
   };
   config = lib.mkIf cfg.enable {
-    custom.rofi.finalPackage = pkgs.rofi.override (_: {
-      plugins = [ pkgs.rofi-calc ];
-      theme = ./mytheme.rasi;
-    });
+    custom.rofi.finalPackage = mypkgs.themed-rofi;
     home.packages = [
       pkgs.nerd-fonts.jetbrains-mono
       cfg.finalPackage

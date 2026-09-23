@@ -1,6 +1,11 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
-  rofi = config.custom.rofi.finalPackage;
+  rofi = lib.getExe config.custom.rofi.finalPackage;
   kitty = lib.getExe pkgs.kitty;
 in
 {
@@ -25,7 +30,7 @@ in
     hyprland = {
       enable = true;
       aquamarine-drm-devices = "/dev/dri/intel-igpu";
-      rofi = lib.getExe rofi;
+      inherit rofi;
       gamelauncher.command = "${config.programs.game-launching-tools.gametimePackage}/bin/gametime";
       mps = lib.getExe config.programs.mps.finalPackage;
       terminalEmulator = kitty;
@@ -38,13 +43,14 @@ in
       cuda = true;
     };
     rbw = {
+      enable = true;
       pinentry = pkgs.pinentry-rofi.override (_: {
-        inherit rofi;
+        rofi = config.custom.rofi.finalPackage;
       });
     };
     yazi = {
       enable = true;
-      rofi = lib.getExe rofi;
+      inherit rofi;
     };
   };
   programs = {
@@ -56,7 +62,7 @@ in
 
     mps = {
       enable = true;
-      dmenu = rofi;
+      dmenuCmd = "${rofi} -dmenu";
     };
   };
 }

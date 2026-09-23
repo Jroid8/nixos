@@ -2,7 +2,8 @@
   lib,
   replaceVarsWith,
   runtimeShell,
-  dmenu,
+	dmenu,
+  dmenuCmd ? lib.getExe dmenu,
   mpc,
   coreutils,
   findutils,
@@ -13,9 +14,8 @@ replaceVarsWith {
   dir = "bin";
   isExecutable = true;
   replacements = {
-    inherit runtimeShell;
+    inherit runtimeShell dmenuCmd;
     path = lib.makeBinPath [
-      dmenu
       mpc
       coreutils
       findutils

@@ -4,6 +4,7 @@ export PATH=@path@${PATH:+:$PATH}
 MPSHOME=$HOME/.local/share/mpd
 PL="$MPSHOME/playlists"
 MU="$HOME/Music"
+dmenu="@dmenuCmd@"
 
 gen() {
 	mkdir -p "$PL"
@@ -21,7 +22,7 @@ gen() {
 }
 
 plsel() {
-	pl=$(ls $PL | cut -d . -f 1 | dmenu -no-custom -multi-select)
+	pl=$(ls $PL | cut -d . -f 1 | $dmenu -no-custom -multi-select)
 	[[ -z $pl ]] && exit
 	mpc clear
 	xargs -I{} mpc load "{}" <<< $pl
@@ -29,7 +30,7 @@ plsel() {
 }
 
 msel() {
-	m=$(ls $MU | dmenu -no-custom -multi-select)
+	m=$(ls $MU | $dmenu -no-custom -multi-select)
 	[[ -z $m ]] && exit
 	xargs -I{} mpc insert "{}" <<< $m
 	mpc next
