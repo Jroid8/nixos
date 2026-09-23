@@ -1,4 +1,4 @@
-{
+{ pkgs, lib, ... }: {
   imports = [
     ./packages.nix
     ./programs.nix
@@ -20,6 +20,7 @@
     stateVersion = "26.05";
 
     sessionVariables = {
+      BROWSER = lib.getExe pkgs.librewolf;
       QT_QPA_PLATFORM = "wayland";
     };
   };
