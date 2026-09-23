@@ -6,7 +6,6 @@
 }:
 let
   cfg = config.custom.yazi;
-  rofi = lib.getExe config.custom-pkgs.rofi;
 in
 {
   config = lib.mkIf cfg.enable {
@@ -42,7 +41,7 @@ in
               "!"
               "r"
             ];
-            run = ''shell -- ${rofi} -config filebrowser -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"'';
+            run = ''shell -- ${cfg.rofi} -config filebrowser -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"'';
             desc = "Grid view";
           }
         ];

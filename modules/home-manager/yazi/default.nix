@@ -11,6 +11,10 @@ in
   options = {
     custom.yazi = {
       enable = lib.mkEnableOption "customized yazi";
+      rofi = lib.mkOption {
+        type = lib.types.nonEmptyStr;
+        default = lib.getExe pkgs.rofi;
+      };
     };
   };
   config = lib.mkIf cfg.enable {

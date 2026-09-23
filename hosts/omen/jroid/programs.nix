@@ -9,7 +9,6 @@ in
     noctalia.enable = true;
     nvf.enable = true;
     rofi.enable = true;
-    yazi.enable = true;
     direnv.enable = true;
     eza.enable = true;
     equibop.enable = true;
@@ -42,6 +41,10 @@ in
       pinentry = pkgs.pinentry-rofi.override (_: {
         inherit rofi;
       });
+    };
+    yazi = {
+      enable = true;
+      rofi = lib.getExe rofi;
     };
   };
   programs = {
