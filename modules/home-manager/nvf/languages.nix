@@ -56,7 +56,7 @@ in
               };
             };
             server = {
-              cmd = [ "${lib.getExe pkgs.rust-analyzer}" ];
+              cmd = [ (lib.getExe pkgs.rust-analyzer) ];
               default_settings = {
                 rust-analyzer = {
                   diagnostics = {
