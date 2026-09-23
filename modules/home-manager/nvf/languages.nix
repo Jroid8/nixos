@@ -19,7 +19,6 @@ in
       html.enable = true;
       json.enable = true;
       lua.enable = true;
-      python.enable = true;
       typescript.enable = true;
 
       assembly = {
@@ -71,6 +70,10 @@ in
       typst = {
         enable = true;
         extensions.typst-preview-nvim.enable = true;
+      };
+      python = {
+        enable = true;
+        lsp.servers = [ "ty" ];
       };
     };
   };
