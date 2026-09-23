@@ -21,4 +21,5 @@ replaceVarsWith {
       findutils
     ];
   };
+  meta.mainProgram = "mps";
 }
