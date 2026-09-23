@@ -16,8 +16,8 @@ let
   dspCmdInOpt =
     opt:
     lib.mkMerge [
-      (lib.mkIf opt.isShell (hl_dsp "hl_cmd" opt.command))
-      (lib.mkIf (!opt.isShell) (hl_dsp "hl_raw" opt.command))
+      (lib.mkIf opt.isShell (hl_dsp "exec_cmd" opt.command))
+      (lib.mkIf (!opt.isShell) (hl_dsp "exec_raw" opt.command))
     ];
 	/*nixfmt:disable*/
   directional_keys = [
