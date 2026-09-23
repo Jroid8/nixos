@@ -42,5 +42,8 @@ in
         };
       };
     };
+    home.shellAliases = {
+      v = "nvim";
+    };
   };
 }
