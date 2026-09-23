@@ -45,6 +45,7 @@ let
                 (inputs.import-tree ../modules/home-manager)
               ];
               extraSpecialArgs = specialArgs;
+              backupCommand = lib.getExe' pkgs.trash-cli "trash-put";
             };
           }
         ];
