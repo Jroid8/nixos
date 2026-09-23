@@ -6,7 +6,7 @@
   ...
 }:
 let
-  cfg = config.custom.mpd;
+  cfg = config.custom.mpv;
   pkg = pkgs.mpv.override {
     mpv-unwrapped =
       if cfg.cuda then
