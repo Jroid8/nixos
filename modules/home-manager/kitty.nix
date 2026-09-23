@@ -9,7 +9,6 @@ let cfg = config.custom.git; in {
     custom.kitty.enable = lib.mkEnableOption "customized kitty";
   };
   config = lib.mkIf cfg.enable {
-    home.packages = [ pkgs.kitty ];
     programs.kitty = {
       enable = true;
       enableGitIntegration = true;
@@ -18,7 +17,6 @@ let cfg = config.custom.git; in {
         name = "JetBrainsMono Nerd Font";
         size = 11;
       };
-      shellIntegration.enableFishIntegration = true;
       settings = {
         background_opacity = 0.85;
       };
