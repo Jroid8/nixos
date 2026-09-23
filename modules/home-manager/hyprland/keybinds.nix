@@ -15,10 +15,10 @@ let
   hl_dsp = func: cmd: mkLuaInline ''hl.dsp.${func}("${cmd}")'';
   dspCmdInOpt =
     opt:
-    hl_dsp (lib.mkMerge [
-      (lib.mkIf opt.isShell "hl_cmd")
-      (lib.mkIf (!opt.isShell) "hl_raw")
-    ]) opt.command;
+    lib.mkMerge [
+      (lib.mkIf opt.isShell (hl_dsp "hl_cmd" opt.command))
+      (lib.mkIf (!opt.isShell) (hl_dsp "hl_raw" opt.command))
+    ];
 	/*nixfmt:disable*/
   directional_keys = [
 		{ key = "H"; name = "left"; }
@@ -30,8 +30,6 @@ let
   scsh_name_fmt = "$(date '+%Y-%m-%d_%H-%M-%S')";
   scsh_edsv = "${lib.getExe pkgs.satty} -f - -o ~/Pictures/Screenshots/${scsh_name_fmt}.png";
 
-  mps = lib.getExe cfg.mps;
-  term = lib.getExe cfg.terminalEmulator;
   wpctl = "${pkgs.wireplumber.out}/bin/wpctl";
   brightnessctl = lib.getExe pkgs.brightnessctl;
   playerctl = lib.getExe pkgs.playerctl;
@@ -64,7 +62,7 @@ in
           # Quick Apps
           [
             "SUPER + Return"
-            (hl_dsp "exec_raw" term)
+            (hl_dsp "exec_raw" cfg.terminalEmulator)
           ]
           [
             "SUPER + Space"
@@ -240,11 +238,11 @@ in
               ]
               [
                 "P"
-                (hl_dsp "exec_raw" "${mps} plsel")
+                (hl_dsp "exec_raw" "${cfg.mps} plsel")
               ]
               [
                 "SUPER + P"
-                (hl_dsp "exec_raw" "${mps} msel")
+                (hl_dsp "exec_raw" "${cfg.mps} msel")
               ]
               [
                 "D"
@@ -268,7 +266,7 @@ in
               ]
               [
                 "F"
-                (hl_dsp "exec_raw" "${term} ${lib.getExe pkgs.yazi}")
+                (hl_dsp "exec_raw" "${cfg.terminalEmulator} ${lib.getExe pkgs.yazi}")
               ]
               catchAll
             ];
