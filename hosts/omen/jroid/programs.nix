@@ -34,7 +34,7 @@ in
       gamelauncher.command = "${config.programs.game-launching-tools.gametimePackage}/bin/gametime";
       mps = lib.getExe config.programs.mps.finalPackage;
       terminalEmulator = kitty;
-      wallpaperSwitch.command = "${lib.getExe config.programs.noctalia.package} wallpaper-random";
+      wallpaperSwitch.command = "${lib.getExe config.programs.noctalia.package} msg wallpaper-random";
       textEditor.command = "${kitty} ${lib.getExe config.programs.nvf.finalPackage}";
       openNotes.command = "${kitty} -d Notes ${lib.getExe config.programs.nvf.finalPackage} index.norg";
     };
