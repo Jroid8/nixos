@@ -10,7 +10,7 @@ in
 {
   options = {
     custom.regreet = {
-      enable = lib.mkEnableOption "customized doas";
+      enable = lib.mkEnableOption "customized regreet";
     };
   };
   config = lib.mkIf cfg.enable {
