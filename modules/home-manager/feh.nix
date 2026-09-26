@@ -14,8 +14,8 @@ in
         scroll_down = "j";
         scroll_left = "h";
         scroll_right = "l";
-        zoom_in = "u";
-        zoom_out = "d";
+        zoom_in = "d";
+        zoom_out = "u";
         zoom_default = "C-z";
         zoom_fit = "z";
 
