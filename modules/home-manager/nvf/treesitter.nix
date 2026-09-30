@@ -27,6 +27,7 @@ in
         markdown
         typst
         fish
+        bash
       ];
     };
   };
