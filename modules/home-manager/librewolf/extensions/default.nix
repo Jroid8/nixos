@@ -20,6 +20,7 @@ in
           darkreader
           decentraleyes
           libredirect
+          foxyproxy-standard
         ];
       };
     };
