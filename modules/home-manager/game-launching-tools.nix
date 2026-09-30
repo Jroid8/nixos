@@ -24,6 +24,9 @@ in
   config = lib.mkIf cfg.enable {
     programs.game-launching-tools.gametimePackage = mypkgs.gametime;
     programs.game-launching-tools.gameSelectorPackage = mypkgs.game-selector;
-    home.packages = [ cfg.gametimePackage cfg.gameSelectorPackage ];
+    home.packages = [
+      cfg.gametimePackage
+      cfg.gameSelectorPackage
+    ];
   };
 }

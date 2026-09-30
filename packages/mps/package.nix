@@ -2,7 +2,7 @@
   lib,
   replaceVarsWith,
   runtimeShell,
-	dmenu,
+  dmenu,
   dmenuCmd ? lib.getExe dmenu,
   mpc,
   coreutils,

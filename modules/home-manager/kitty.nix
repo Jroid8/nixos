@@ -4,7 +4,10 @@
   lib,
   ...
 }:
-let cfg = config.custom.git; in {
+let
+  cfg = config.custom.git;
+in
+{
   options = {
     custom.kitty.enable = lib.mkEnableOption "customized kitty";
   };

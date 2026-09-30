@@ -1,4 +1,8 @@
-{ lib, config, ... }: let cfg = config.custom.git; in {
+{ lib, config, ... }:
+let
+  cfg = config.custom.git;
+in
+{
   options = {
     custom.git.enable = lib.mkEnableOption "customized git";
   };

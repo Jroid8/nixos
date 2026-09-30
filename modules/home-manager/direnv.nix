@@ -1,4 +1,8 @@
-{ config, lib, ... }: let cfg = config.custom.direnv; in {
+{ config, lib, ... }:
+let
+  cfg = config.custom.direnv;
+in
+{
   options = {
     custom.direnv.enable = lib.mkEnableOption "customized direnv";
   };
