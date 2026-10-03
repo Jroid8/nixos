@@ -14,6 +14,13 @@ in
   config = lib.mkIf cfg.enable {
     programs.fish = {
       enable = true;
+      shellAbbrs = {
+        nohp = {				
+					expansion = "nohup % &> /dev/null";
+          position = "command";
+					setCursor = true;
+        };
+      };
       interactiveShellInit = /* fish */ ''
         ${lib.getExe pkgs.starship} init fish | source
       '';
