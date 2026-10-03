@@ -22,7 +22,6 @@ in
         	fish_default_key_bindings -M insert
         	fish_vi_key_bindings --no-erase insert
         	bind -M insert jf -m default backward-char force-repaint
-        	bind -M insert ctrl-space forward-char
         end
       '';
       functions = {
