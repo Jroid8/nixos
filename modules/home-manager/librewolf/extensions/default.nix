@@ -19,8 +19,9 @@ in
           cookie-editor
           darkreader
           decentraleyes
-          libredirect
           foxyproxy-standard
+          libredirect
+          single-file
         ];
       };
     };
