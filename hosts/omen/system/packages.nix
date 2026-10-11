@@ -8,6 +8,7 @@
     lsof
     nix-output-monitor
     nix-tree
+    pv
     ripgrep
     vim
 
