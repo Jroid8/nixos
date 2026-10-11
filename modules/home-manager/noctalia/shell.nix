@@ -7,6 +7,7 @@ in
     programs.noctalia.settings.shell = {
       avatar_path = "${config.home.homeDirectory}/Pictures/Logo.png";
       clipboard_enabled = false;
+      clipboard_keep_from_closed_apps = false;
       panel = {
         shadow = false;
         transparency_mode = "soft";

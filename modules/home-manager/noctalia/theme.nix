@@ -13,12 +13,14 @@ in
             "gtk3"
             "gtk4"
             "hyprland"
+            "kcolorscheme"
             "qt"
           ];
           community_ids = [
             "rofi"
-            "yazi"
+            "zathura"
             "hyprtoolkit"
+            "yazi"
           ];
         };
       };

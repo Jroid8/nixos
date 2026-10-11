@@ -17,8 +17,6 @@ in
 
       end = [
         "group:usage"
-        "tray"
-        "notifications"
         "group:system"
         "date"
       ];
@@ -26,7 +24,10 @@ in
       start = [
         "network"
         "bluetooth"
+        "notifications"
+        "tray"
         "media"
+        "timer"
       ];
 
       capsule_group =
