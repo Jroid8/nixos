@@ -268,6 +268,10 @@ in
                 "F"
                 (hl_dsp "exec_raw" "${cfg.terminalEmulator} ${lib.getExe pkgs.yazi}")
               ]
+              [
+                "B"
+                (hl_dsp "exec_raw" "${lib.getExe pkgs.rofi-rbw-wayland}")
+              ]
               catchAll
             ];
           };
