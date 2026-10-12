@@ -28,7 +28,7 @@ let
   ];
 	/*nixfmt:enable*/
   scsh_name_fmt = "$(date '+%Y-%m-%d_%H-%M-%S')";
-  scsh_edsv = "${lib.getExe pkgs.satty} -f - -o ~/Pictures/Screenshots/${scsh_name_fmt}.png";
+  scsh_edsv = "${lib.getExe pkgs.satty} --fullscreen -f - -o ~/Pictures/Screenshots/${scsh_name_fmt}.png";
 
   wpctl = "${pkgs.wireplumber.out}/bin/wpctl";
   brightnessctl = lib.getExe pkgs.brightnessctl;
@@ -135,7 +135,7 @@ in
             (hl_dsp "exec_cmd" ''${grim} -w \"$(${hyprctl} activewindow -j | ${jq} -r '.address')\" ~/Pictures/Screenshots/${scsh_name_fmt}.png'')
           ]
           [
-            "ALT + Print"
+            "SUPER + SHIFT + Print"
             (hl_dsp "exec_cmd" "${grim} -t ppm - | ${scsh_edsv}")
           ]
           [
