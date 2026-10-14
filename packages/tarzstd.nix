@@ -9,7 +9,6 @@
 }:
 let
   tar = lib.getExe gnutar;
-  zstdBin = lib.getExe zstd;
   du = lib.getExe' coreutils "du";
   awk = lib.getExe gawk;
 in
@@ -25,7 +24,7 @@ writers.writeFishBin "tarzstd" /* fish */ ''
   end
   set target (string replace -r "/\$" "" $argv[1])
   ${tar} -cf - $target \
-    | ${pv} -peb -s (${du} -sb $target | ${awk} '{print $1}') \
-    | ${zstdBin} -16 --long \
+    | ${lib.getExe pv} -peb -s (${du} -sb $target | ${awk} '{print $1}') \
+    | ${lib.getExe zstd} -16 --long \
     > $destdir/$target.tar.zst
 ''
