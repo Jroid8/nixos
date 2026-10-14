@@ -37,6 +37,10 @@ in
         };
         nvim-docs-view.enable = true;
         otter-nvim.enable = true;
+
+        servers = {
+          tinymist.cmd = lib.mkForce [ "tinymist" ];
+        };
       };
     };
   };
