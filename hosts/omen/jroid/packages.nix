@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   pkgs-cuda,
   ...
 }:
@@ -13,6 +12,7 @@
       satty
 
       # CLI
+      ddgr
       dragon-drop
       fastfetch
       grim
