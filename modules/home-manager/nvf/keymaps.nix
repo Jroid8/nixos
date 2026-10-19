@@ -241,6 +241,58 @@ in
         desc = "Toggle neotree";
       }
     ]
+    # Text Objects
+    ++ (
+      [
+        {
+          key = "c";
+          textobj = "call";
+        }
+        {
+          key = "C";
+          textobj = "class";
+        }
+        {
+          key = "f";
+          textobj = "function";
+        }
+        {
+          key = "l";
+          textobj = "loop";
+        }
+      ]
+      |> builtins.concatMap (
+        { key, textobj }:
+        let
+          lua = true;
+          mode = [
+            "n"
+            "x"
+            "o"
+          ];
+        in
+        [
+          {
+            inherit lua mode;
+            key = "a" + key;
+            action = /* lua */ ''
+              function()
+                require("nvim-treesitter-textobjects.select").select_textobject("@${textobj}.outer", "textobjects")
+              end
+            '';
+          }
+          {
+            inherit lua mode;
+            key = "i" + key;
+            action = /* lua */ ''
+              function()
+                require("nvim-treesitter-textobjects.select").select_textobject("@${textobj}.inner", "textobjects")
+              end
+            '';
+          }
+        ]
+      )
+    )
     /*nixfmt:disable*/
     ++ (builtins.map
       (key: {
