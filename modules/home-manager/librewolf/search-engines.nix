@@ -34,7 +34,6 @@ in
             }
           ];
         };
-        wikipedia.definedAliases = [ "wi" ];
       }
       // (lib.attrsets.genAttrs' [ "policy-MetaGer" "policy-Mojeek" ] (id: {
         name = id;
