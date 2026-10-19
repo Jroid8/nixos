@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf = {
-      url = "github:NotAShelf/nvf";
+      url = "github:NotAShelf/nvf/v26.07";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     grim-hyprland = {
