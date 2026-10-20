@@ -266,7 +266,6 @@ in
         let
           lua = true;
           mode = [
-            "n"
             "x"
             "o"
           ];
