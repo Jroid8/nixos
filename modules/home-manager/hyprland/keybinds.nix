@@ -101,7 +101,7 @@ in
             (mkLuaInline "hl.dsp.group.prev()")
           ]
 
-          # F1-12 Keys
+          # F12 Keys
           [
             "SUPER + CTRL + F12"
             (hl_dsp "exec_raw" "${systemctl} reboot")
@@ -110,12 +110,14 @@ in
             "SUPER + SHIFT + F12"
             (hl_dsp "exec_raw" "${systemctl} suspend")
           ]
+
+          # Control Keys
           [
-            "SUPER + F11"
+            "SUPER + CTRL + W"
             (dspCmdInOpt cfg.wallpaperSwitch)
           ]
           [
-            "SUPER + F10"
+            "SUPER + CTRL + S"
             (toggle-service "--user hyprsunset")
           ]
           [
