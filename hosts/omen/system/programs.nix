@@ -5,6 +5,7 @@
     git.enable = true;
     hyprland.enable = true;
   };
+  security.pam.services.hyprlock.enable = true;
   custom = {
     wine.enable = true;
   };

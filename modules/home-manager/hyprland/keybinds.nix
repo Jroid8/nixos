@@ -118,6 +118,10 @@ in
             "SUPER + F10"
             (toggle-service "--user hyprsunset")
           ]
+          [
+            "SUPER + CTRL + O"
+            (hl_dsp "exec_raw" "${lib.getExe pkgs.hyprlock}")
+          ]
 
           # Exit hyprland
           [
