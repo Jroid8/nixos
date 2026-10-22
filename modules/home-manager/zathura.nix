@@ -13,6 +13,22 @@ in
   };
   config = lib.mkIf cfg.enable {
     programs.zathura.enable = true;
-    xdg.mimeApps.defaultApplicationPackages = with pkgs; [ zathura ];
+    xdg.mimeApps = {
+      defaultApplicationPackages = with pkgs.zathuraPkgs; [
+        zathura_ps
+        zathura_djvu
+        zathura_pdf_mupdf
+      ];
+      defaultApplications =
+        [
+          "application/vnd.comicbook+zip"
+          "application/vnd.comicbook-rar"
+          "application/x-cbr"
+          "application/x-cbz"
+          "application/x-cb7"
+          "application/x-cbt"
+        ]
+        |> lib.flip lib.genAttrs (_: ["org.pwmt.zathura.desktop"]);
+    };
   };
 }
