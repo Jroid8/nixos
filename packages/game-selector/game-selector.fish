@@ -1,6 +1,6 @@
 #!@fish@
 
-cd $HOME/.local/share/Games
+cd /mnt/windows/Users/Jroid/Games/
 
 set games
 for geafile in */gameexecargs

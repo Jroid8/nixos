@@ -4,7 +4,7 @@ test -n "$PATH"; and set -x PATH @path@ $PATH; or set -x PATH @path@
 if test -z "$argv"
     set game (game-selector)
     test -z "$game" && exit 1
-    cd "$HOME/.local/share/Games/$game"
+    cd "/mnt/windows/Users/Jroid/Games/$game"
     set -g gamecmd (cat gameexecargs | string split \n)
 else
     if test "$argv[1]" = -w
