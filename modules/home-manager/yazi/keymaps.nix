@@ -19,10 +19,7 @@ in
         ];
         append_keymap = [
           {
-            on = [
-              "!"
-              "s"
-            ];
+            on = [ "!" ];
             run = ''shell "$SHELL" --block'';
             desc = "Open $SHELL here";
           }
@@ -35,14 +32,6 @@ in
             on = [ "<A-D>" ];
             run = "shell -- ${lib.getExe pkgs.dragon-drop} -T -A %s";
             desc = "drag and drop all at once";
-          }
-          {
-            on = [
-              "!"
-              "r"
-            ];
-            run = ''shell -- ${cfg.rofi} -config filebrowser -show filebrowser -filebrowser-command "ya emit reveal" -filebrowser-directory "$(pwd)"'';
-            desc = "Grid view";
           }
         ];
       };
