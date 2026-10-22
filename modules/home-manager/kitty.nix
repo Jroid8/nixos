@@ -24,5 +24,10 @@ in
         background_opacity = 0.85;
       };
     };
+    xdg.terminal-exec = {
+      enable = true;
+      settings.default = [ "kitty.desktop" ];
+    };
+    home.sessionVariables.TERM = lib.getExe pkgs.kitty;
   };
 }

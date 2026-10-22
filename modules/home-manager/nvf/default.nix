@@ -45,5 +45,6 @@ in
     home.shellAliases = {
       v = "nvim";
     };
+    xdg.mimeApps.defaultApplicationPackages = [ config.programs.nvf.finalPackage ];
   };
 }

@@ -26,5 +26,6 @@ in
         inherit (pkgs.yaziPlugins) mount;
       };
     };
+    xdg.mimeApps.defaultApplicationPackages = [ pkgs.yazi ];
   };
 }
