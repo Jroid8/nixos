@@ -28,6 +28,15 @@ in
       enable = true;
       settings.default = [ "kitty.desktop" ];
     };
-    home.sessionVariables.TERM = lib.getExe pkgs.kitty;
+    home = {
+      sessionVariables.TERM = lib.getExe pkgs.kitty;
+      # Workaround until xdg-utils 1.3 comes to stable
+      packages = [
+        (pkgs.runCommand "xterm-kitty-alias" { } ''
+          mkdir -p $out/bin
+          ln -s ${lib.getExe pkgs.kitty} $out/bin/xterm-kitty
+        '')
+      ];
+    };
   };
 }
