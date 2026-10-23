@@ -21,4 +21,5 @@
       };
     };
   };
+  security.rtkit.enable = true;
 }
