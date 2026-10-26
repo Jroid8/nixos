@@ -38,6 +38,7 @@
 
   outputs = inputs: {
     nixosConfigurations = import lib/gen-hosts.nix inputs;
+    packages = import lib/my-pkgs-for-each-system.nix inputs.nixpkgs;
   };
 
   nixConfig = {
