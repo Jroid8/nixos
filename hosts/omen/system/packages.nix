@@ -19,6 +19,8 @@
     cifs-utils
     cryptsetup
     rar
+    squashfsTools
+    squashfuse
     unzip
     zip
 
