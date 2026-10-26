@@ -13,5 +13,8 @@ in
       icons = "auto";
       extraOptions = [ "--no-quotes" ];
     };
+    home.shellAliases = {
+      tree = "eza --tree";
+    };
   };
 }
