@@ -96,6 +96,21 @@
     },
     "mnw": {
       "locked": {
+        "lastModified": 1790357809,
+        "narHash": "sha256-6IWPAMEotKY/nQvs1kU6qwMwCXTeW5HlOhw2RwFHFdI=",
+        "owner": "Gerg-L",
+        "repo": "mnw",
+        "rev": "a582dbedf7c8ec7effa6939ac5bdd23b27267d1b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gerg-L",
+        "repo": "mnw",
+        "type": "github"
+      }
+    },
+    "mnw_2": {
+      "locked": {
         "lastModified": 1780772958,
         "narHash": "sha256-VKKe8r4pwCGWZ3Yr9CPN129R4S3CKLSrlYqdYz3vKpM=",
         "owner": "Gerg-L",
@@ -227,7 +242,7 @@
     "nvf": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "mnw": "mnw",
+        "mnw": "mnw_2",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -252,6 +267,7 @@
         "grim-hyprland": "grim-hyprland",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
+        "mnw": "mnw",
         "nbfc-linux": "nbfc-linux",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",

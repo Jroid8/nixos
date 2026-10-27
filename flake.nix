@@ -34,11 +34,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     import-tree.url = "github:denful/import-tree";
+    mnw.url = "github:Gerg-L/mnw";
   };
 
   outputs = inputs: {
     nixosConfigurations = import lib/gen-hosts.nix inputs;
-    packages = import lib/my-pkgs-for-each-system.nix inputs.nixpkgs;
+    packages = import lib/my-pkgs-for-each-system.nix inputs;
   };
 
   nixConfig = {

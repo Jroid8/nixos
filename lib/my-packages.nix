@@ -1,5 +1,6 @@
-pkgs:
+{ inputs, system }:
 let
+  pkgs = inputs.nixpkgs.legacyPackages.${system};
   inherit (pkgs) lib;
   dirPath = builtins.toString ../packages;
   dir = builtins.readDir ../packages;
@@ -21,3 +22,9 @@ let
     |> builtins.mapAttrs (_: file: callPackage "${dirPath}/${file}" { });
 in
 mypkgs
+// {
+  my-neovim = import ./my-neovim.nix {
+    inherit pkgs;
+    inherit (inputs) mnw import-tree;
+  };
+}

@@ -16,7 +16,9 @@ let
           |> genAttrs (user: hostPath + "/${user}/home.nix")
           |> lib.attrsets.filterAttrs (_: builtins.pathExists)
           |> builtins.mapAttrs (_: p: /. + p);
-        mypkgs = import ./my-packages.nix pkgs;
+        mypkgs = import ./my-packages.nix {
+          inherit system inputs;
+        };
         pkgs-cuda = import inputs.nixpkgs-cuda {
           inherit system;
           config = {
