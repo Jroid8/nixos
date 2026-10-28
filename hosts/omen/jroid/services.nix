@@ -9,4 +9,7 @@
       acceleration = "cuda";
     };
   };
+  services = {
+    playerctld.enable = true;
+  };
 }
