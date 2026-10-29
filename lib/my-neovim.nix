@@ -165,6 +165,7 @@ mnw.lib.wrap pkgs (
       appName = "nvim";
 
       initLua = /* lua */ ''
+        vim.g.mapleader = " ";
         require("lz.n").load({
           ${builtins.map lznPluginSpecToLua config.lz-n |> lib.join ",\n"}
         })

@@ -1,4 +1,3 @@
-vim.g.mapleader = " ";
 
 vim.keymap.set("i", "jf", "<ESC>")
 vim.keymap.set("i", "<S-CR>", "<ESC>O")
