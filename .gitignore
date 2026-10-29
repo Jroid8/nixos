@@ -1,3 +1,4 @@
 shared
 omen.qcow2
 result
+*.secret.nix
