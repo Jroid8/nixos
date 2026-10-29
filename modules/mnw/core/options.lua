@@ -1,0 +1,17 @@
+vim.o.expandtab = false;
+vim.o.tabstop = 2;
+vim.o.shiftwidth = 2;
+vim.o.mouse = "a";
+vim.o.incsearch = true;
+vim.o.termguicolors = true;
+vim.o.smartindent = true;
+vim.o.conceallevel = 2;
+vim.o.concealcursor = "n";
+vim.o.linebreak = true;
+vim.o.number = true;
+vim.o.relativenumber = true;
+vim.o.splitright = true;
+vim.o.exrc = true;
+vim.o.foldlevelstart = 99;
+vim.o.foldmethod = "expr";
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()";
