@@ -19,8 +19,6 @@
       jq
       kiwix-tools
       lm_sensors
-      mpc
-      nixfmt
       python3
       wl-clipboard
 

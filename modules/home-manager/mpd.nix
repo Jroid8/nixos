@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   cfg = config.custom.mpd;
 in
@@ -19,5 +19,7 @@ in
         }
       '';
     };
+
+    home.packages = [ pkgs.mpc ];
   };
 }
