@@ -17,6 +17,7 @@
       fastfetch
       grim
       jq
+      kiwix-tools
       lm_sensors
       mpc
       nixfmt
