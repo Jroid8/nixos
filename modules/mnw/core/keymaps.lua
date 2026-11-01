@@ -1,4 +1,3 @@
-
 vim.keymap.set("i", "jf", "<ESC>")
 vim.keymap.set("i", "<S-CR>", "<ESC>O")
 vim.keymap.set("n", "<leader>q", ":try | quit | catch /E37:/ | wq | endtry<CR><CR>", { desc = "Save and quit" })
