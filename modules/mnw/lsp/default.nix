@@ -22,6 +22,10 @@ in
         type = lib.types.bool;
         default = true;
       };
+      clangd = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+      };
       nil = lib.mkOption {
         type = lib.types.bool;
         default = true;
