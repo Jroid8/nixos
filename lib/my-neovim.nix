@@ -176,10 +176,6 @@ mnw.lib.wrap pkgs (
           lz-n
           plenary-nvim
         ];
-        dev._config = {
-          pure = ./.;
-          impure = builtins.toString ./.;
-        };
       };
     };
   }
