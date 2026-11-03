@@ -25,6 +25,11 @@ in
       plugins = {
         inherit (pkgs.yaziPlugins) mount;
       };
+      settings = {
+        preview = {
+          cache_dir = "${config.xdg.cacheHome}/yazi";
+        };
+      };
     };
     xdg.mimeApps.defaultApplicationPackages = [ pkgs.yazi ];
   };
