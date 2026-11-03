@@ -50,6 +50,11 @@ in
         };
       };
     };
-    xdg.mimeApps.defaultApplicationPackages = [ pkg ];
+    xdg.mimeApps = {
+      defaultApplicationPackages = [ pkg ];
+      defaultApplications = {
+        "audio/x-m4b" = [ "mpv.desktop" ];
+      };
+    };
   };
 }
