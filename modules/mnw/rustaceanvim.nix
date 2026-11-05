@@ -17,7 +17,7 @@ in
     };
   };
 
-  config = lib.mkIf cfg.rustaceanvim {
+  config = lib.mkIf cfg.enable {
     plugins.start = [ pkgs.vimPlugins.rustaceanvim ];
     initLua = /* lua */ ''
       vim.g.rustaceanvim = {
