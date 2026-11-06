@@ -43,12 +43,6 @@ in
       enable = true;
       cuda = true;
     };
-    rbw = {
-      enable = true;
-      pinentry = pkgs.pinentry-rofi.override (_: {
-        rofi = config.custom.rofi.finalPackage;
-      });
-    };
     yazi = {
       enable = true;
       inherit rofi;
