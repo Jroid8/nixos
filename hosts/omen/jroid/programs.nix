@@ -21,6 +21,7 @@ in
     fish.enable = true;
     fzf.enable = true;
     git.enable = true;
+    keepassxc.enable = true;
     kitty.enable = true;
     starship.enable = true;
     v2rayn.enable = true;
