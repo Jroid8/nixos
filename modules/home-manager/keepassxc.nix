@@ -22,8 +22,6 @@ in
           ConfigVersion = 2;
           AutoGeneratePasswordForNewEntries = true;
           OpenPreviousDatabasesOnStartup = false;
-          RememberLastDatabases = false;
-          RememberLastKeyFiles = false;
         };
         GUI = {
           AdvancedSettings = true;
