@@ -35,6 +35,7 @@ let
         modules = [
           (inputs.import-tree ../modules/nixos)
           (hostPath + "/system/configuration.nix")
+          inputs.agenix.nixosModules.default
           inputs.nix-index-database.nixosModules.default
           inputs.nur.modules.nixos.default
           inputs.home-manager.nixosModules.home-manager
@@ -45,6 +46,7 @@ let
               useUserPackages = true;
               sharedModules = [
                 (inputs.import-tree ../modules/home-manager)
+                inputs.agenix.homeManagerModules.default
               ];
               extraSpecialArgs = specialArgs;
               backupCommand = lib.getExe' pkgs.trash-cli "trash-put";

@@ -35,6 +35,10 @@
     };
     import-tree.url = "github:denful/import-tree";
     mnw.url = "github:Gerg-L/mnw";
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: {

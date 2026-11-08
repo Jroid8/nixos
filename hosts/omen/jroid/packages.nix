@@ -1,6 +1,7 @@
 {
   pkgs,
   pkgs-cuda,
+  inputs,
   ...
 }:
 {
@@ -35,6 +36,7 @@
     ])
     ++ [
       pkgs-cuda.blender
+      inputs.agenix.packages.x86_64-linux.default
       (pkgs-cuda.ffmpeg-full.override {
         withNvcodec = true;
       })

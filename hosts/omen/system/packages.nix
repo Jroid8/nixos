@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
     # Commandline Utils
@@ -10,7 +10,9 @@
     nix-tree
     pv
     ripgrep
-    vim
+    neovim
+    screen
+    inputs.agenix.packages.x86_64-linux.default
 
     # Filesystem Utils
     _7zz

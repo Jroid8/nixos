@@ -1,0 +1,5 @@
+let
+  omen = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID73tf6zXgwkmU9VLYuvRIz1092Y0OvVvV5Fhvh7efYL";
+in
+{
+}
