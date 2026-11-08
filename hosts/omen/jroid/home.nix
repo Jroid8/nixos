@@ -18,9 +18,6 @@
   };
 
   home = {
-    username = "jroid";
-    uid = 1000;
-    homeDirectory = "/home/jroid";
     stateVersion = "26.05";
 
     sessionVariables = {
