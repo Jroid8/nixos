@@ -2,6 +2,7 @@
   custom = {
     autoExpire.enable = true;
     mpd.enable = true;
+    tor.enable = true;
     wl-clip-persist.enable = true;
 
     ollama = {

@@ -1,6 +1,5 @@
 {
   custom = {
-    tor.enable = true;
     nix-gc.enable = true;
 
     nbfc = {

@@ -1,10 +1,12 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, config, ... }: {
   imports = [
     ./packages.nix
     ./programs.nix
     ./services.nix
     ./theming.nix
   ];
+
+  age.secretsDir = "/run/user/${builtins.toString config.home.uid}/agenix";
 
   xdg = {
     enable = true;
@@ -17,6 +19,7 @@
 
   home = {
     username = "jroid";
+    uid = 1000;
     homeDirectory = "/home/jroid";
     stateVersion = "26.05";
 
