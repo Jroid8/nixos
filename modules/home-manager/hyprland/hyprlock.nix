@@ -33,7 +33,7 @@ in
 
         input-field = [
           {
-            size = "20%, 8%";
+            size = "36%, 8%";
             outline_thickness = 4;
             fail_text = "$PAMFAIL";
             dots_spacing = 0.3;
