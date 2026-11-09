@@ -1,6 +1,7 @@
 {
   custom = {
     nix-gc.enable = true;
+    openssh.enable = true;
 
     nbfc = {
       enable = true;
@@ -11,7 +12,6 @@
     tuned.enable = true;
     upower.enable = true;
     udisks2.enable = true;
-    openssh.enable = true;
     pipewire = {
       enable = true;
       pulse.enable = true;
