@@ -16,23 +16,25 @@ in
         enable = true;
         settings = {
           general = {
-            after_sleep_cmd = "hyprctl dispatch dpms on";
-            ignore_dbus_inhibit = false;
             lock_cmd = "hyprlock";
           };
           listener = [
             {
-              timeout = 900;
+              timeout = 60*12;
+              on-timeout = "${brightnessctl} -n1 -e9 s 25%-";
+              on-resume = "${brightnessctl} -e9 s 25%+";
+            }
+            {
+              timeout = 60*15;
               on-timeout = "hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'";
-              on-resume = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })' && ${brightnessctl} -r";
+              on-resume = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'";
             }
             {
-              timeout = 830;
-              on-timeout = "${brightnessctl} -n1 -e9 s 20%-";
-              on-resume = "";
+              timeout = 60*20;
+              on-timeout = "hyprlock";
             }
             {
-              timeout = 1200;
+              timeout = 60*30;
               on-timeout = "systemctl suspend";
             }
           ];
