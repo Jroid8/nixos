@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
 {
   imports = [
     ./filesystems.nix
@@ -52,14 +57,20 @@
   };
 
   # Users
+  age.secrets.jroid-passwd.file = ../../../secrets/jroid-passwd.age;
+  age.secrets.omen-passwd.file = ../../../secrets/omen-passwd.age;
   users = {
-    users.jroid = {
-      uid = 1000;
-      isNormalUser = true;
-      initialPassword = "12345";
-      group = "jroid";
-      extraGroups = [ "wheel" ];
-      shell = pkgs.fish;
+    mutableUsers = false;
+    users = {
+      root.hashedPasswordFile = config.age.secrets.omen-passwd.path;
+      jroid = {
+        uid = 1000;
+        isNormalUser = true;
+        hashedPasswordFile = config.age.secrets.jroid-passwd.path;
+        group = "jroid";
+        extraGroups = [ "wheel" ];
+        shell = pkgs.fish;
+      };
     };
     groups.jroid.gid = 990;
   };
