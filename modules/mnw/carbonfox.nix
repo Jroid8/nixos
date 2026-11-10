@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  dag,
   ...
 }:
 let
@@ -16,7 +17,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    initLua = /* lua */ ''
+    initLuaDag.colorscheme = dag.entryAnywhere /* lua */ ''
       require("nightfox").setup({
         options = {
           transparent = true,

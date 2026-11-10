@@ -1,4 +1,9 @@
-{ lib, config }:
+{
+  lib,
+  config,
+  dag,
+  ...
+}:
 let
   inherit (lib) types;
   luaInlineOr = types.either types.luaInline;
@@ -150,8 +155,7 @@ in
     };
   };
   config = {
-    initLua = /* lua */ ''
-      vim.g.mapleader = " ";
+    initLuaDag.lzn-load = dag.entryAnywhere /* lua */ ''
       require("lz.n").load({
         ${builtins.map lznPluginSpecToLua config.lz-n |> lib.join ",\n"}
       })

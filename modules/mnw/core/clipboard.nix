@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, dag, ... }: {
   extraBinPath = [ pkgs.wl-clipboard ];
-  initLua = /* lua */ ''
+  initLuaDag.clipboard-assign = dag.entryAnywhere /* lua */ ''
     vim.o.clipboard = "unnamedplus"
   '';
 }

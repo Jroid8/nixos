@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  dag,
+  ...
+}:
 let
   cfg = config.custom.fish-expandtab;
 in
@@ -12,7 +17,7 @@ in
     };
   };
   config = lib.mkIf cfg.enable {
-    initLua = /* lua */ ''
+    initLuaDag.fish-autocmd = dag.entryAnywhere /* lua */ ''
       vim.api.nvim_create_autocmd({"FileType"}, {
         pattern = {"fish"},
         callback = function()

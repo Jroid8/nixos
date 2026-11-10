@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  dag,
+  ...
+}:
 let
   cfg = config.custom.detect-rust-script;
 in
@@ -12,7 +17,7 @@ in
     };
   };
   config = lib.mkIf cfg.enable {
-    initLua = /* lua */ ''
+    initLuaDag.rustscript-autocmd = dag.entryAnywhere /* lua */ ''
       vim.api.nvim_create_autocmd({"BufRead"}, {
         pattern = {"*"},
         callback = function()

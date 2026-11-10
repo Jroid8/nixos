@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  dag,
   ...
 }:
 let
@@ -122,7 +123,7 @@ in
         fzf-lua
       ];
     };
-    initLua = /* lua */ ''
+    initLuaDag.fzfdefaultopts-env-unassign = dag.entryAnywhere /* lua */ ''
       vim.env.FZF_DEFAULT_OPTS = nil
     '';
     lz-n = [

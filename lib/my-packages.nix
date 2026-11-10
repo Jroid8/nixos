@@ -25,6 +25,6 @@ mypkgs
 // {
   my-neovim = import ./my-neovim.nix {
     inherit pkgs;
-    inherit (inputs) mnw import-tree;
+    inherit (inputs) mnw import-tree dag;
   };
 }

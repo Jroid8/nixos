@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  dag,
   ...
 }:
 {
@@ -14,7 +15,7 @@
 
   config = lib.mkIf config.lsp.lua-ls {
     extraBinPath = [ pkgs.lua-language-server ];
-    initLua = /* lua */ ''
+    initLuaDag.lua-lsp-config = dag.entryAnywhere /* lua */ ''
       vim.lsp.config("lua_ls", {
         root_markers = { ".nvim-config" },
         on_init = function(client)

@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  dag,
   ...
 }:
 let
@@ -52,7 +53,7 @@ in
       ++ (lib.optional cfg.glsl_analyzer pkgs.glsl_analyzer)
       ++ (lib.optional cfg.vscode_langservers pkgs.vscode-langservers-extracted);
 
-    initLua = /* lua */ ''
+    initLuaDag.lsp-enable = dag.entryAnywhere /* lua */ ''
       vim.lsp.enable({${
         (lib.optional cfg.ty "ty")
         ++ (lib.optional cfg.fish_lsp "fish_lsp")

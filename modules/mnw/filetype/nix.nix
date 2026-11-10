@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  dag,
+  ...
+}:
 let
   cfg = config.custom.nix-expandtab;
 in
@@ -12,9 +17,9 @@ in
     };
   };
   config = lib.mkIf cfg.enable {
-    initLua = /* lua */ ''
+    initLuaDag.nix-autocmd = dag.entryAnywhere /* lua */ ''
       vim.api.nvim_create_autocmd({"FileType"}, {
-        pattern = {"fish"},
+        pattern = {"nix"},
         callback = function()
           vim.bo.tabstop = 2
           vim.bo.shiftwidth = 2

@@ -39,6 +39,7 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dag.url = "github:denful/dag";
   };
 
   outputs = inputs: {

@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  dag,
   ...
 }:
 let
@@ -18,7 +19,7 @@ in
   };
   config = lib.mkIf cfg.enable {
     plugins.start = with pkgs.vimPlugins; [ blink-cmp ];
-    initLua = /* lua */ ''
+    initLuaDag.blinkcmp-setup = dag.entryAnywhere /* lua */ ''
       require("blink.cmp").setup({
         cmdline = {
           keymap = {

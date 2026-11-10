@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  dag,
   ...
 }:
 let
@@ -19,7 +20,7 @@ in
 
   config = lib.mkIf cfg.enable {
     plugins.start = [ pkgs.vimPlugins.rustaceanvim ];
-    initLua = /* lua */ ''
+    initLuaDag.rustaceanvim-config-assign = dag.entryAnywhere /* lua */ ''
       vim.g.rustaceanvim = {
         tools = {
           enable_clippy = false,
