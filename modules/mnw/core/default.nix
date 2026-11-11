@@ -4,7 +4,5 @@
     ./options.lua
   ];
 
-  initLuaDag.leader-key-assign = dag.entryBefore [
-    "lzn-load"
-  ] /* lua */ ''vim.g.mapleader = " "'';
+  initLuaDag.leader-key-assign = dag.entryAnywhere /* lua */ ''vim.g.mapleader = " "'';
 }

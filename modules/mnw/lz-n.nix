@@ -155,7 +155,7 @@ in
     };
   };
   config = {
-    initLuaDag.lzn-load = dag.entryAnywhere /* lua */ ''
+    initLuaDag.lzn-load = dag.entryAfter [ "leader-key-assign" ] /* lua */ ''
       require("lz.n").load({
         ${builtins.map lznPluginSpecToLua config.lz-n |> lib.join ",\n"}
       })
