@@ -65,6 +65,10 @@ in
             (hl_dsp "exec_raw" cfg.terminalEmulator)
           ]
           [
+            "SUPER + SHIFT + Return"
+            (hl_dsp "exec_raw" "${config.programs.rofi-screen.finalPackage}/bin/rofi-screen")
+          ]
+          [
             "SUPER + Space"
             (hl_dsp "exec_raw" "${cfg.rofi} -show drun -modes drun,run,calc -disable-history -terse -calc-command 'echo -n '{result}' | wl-copy' -reuse-result")
           ]

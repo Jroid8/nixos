@@ -7,6 +7,7 @@
 let
   rofi = lib.getExe config.custom.rofi.finalPackage;
   kitty = lib.getExe pkgs.kitty;
+  dmenuCmd = "${rofi} -dmenu";
 in
 {
   custom = {
@@ -57,7 +58,12 @@ in
 
     mps = {
       enable = true;
-      dmenuCmd = "${rofi} -dmenu";
+      inherit dmenuCmd;
+    };
+    rofi-screen = {
+      enable = true;
+      inherit dmenuCmd;
+      terminalEmulator = pkgs.kitty;
     };
   };
 }
