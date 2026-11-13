@@ -43,6 +43,7 @@ in
         Security = {
           Security_HideNotes = true;
           IconDownloadFallback = true;
+          LockDatabaseIdle = false;
         };
       };
     };
