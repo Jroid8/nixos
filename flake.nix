@@ -40,6 +40,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dag.url = "github:denful/dag";
+    eval-time-secret-values.url = "github:Jroid8/nixos-eval-time-secrets";
   };
 
   outputs = inputs: {

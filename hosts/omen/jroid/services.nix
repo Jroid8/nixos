@@ -9,6 +9,10 @@
       enable = true;
       acceleration = "cuda";
     };
+    syncthing = {
+      enable = true;
+      currentDevice = "Omen";
+    };
   };
   services = {
     playerctld.enable = true;

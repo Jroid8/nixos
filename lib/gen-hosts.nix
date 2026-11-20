@@ -28,6 +28,7 @@ let
         };
         specialArgs = {
           inherit inputs mypkgs pkgs-cuda;
+          secrets = inputs.eval-time-secret-values;
         };
       in
       lib.nixosSystem {
