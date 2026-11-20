@@ -13,15 +13,22 @@
       satty
 
       # CLI
+      age
       ddgr
       dragon-drop
+      brightnessctl
+      dust
       fastfetch
       grim
       jq
       kiwix-tools
       lm_sensors
+      mupdf
       python3
+      squashfsTools
+      trash-cli
       wl-clipboard
+      yq
 
       # Libreoffice
       libreoffice-qt
