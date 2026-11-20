@@ -51,9 +51,20 @@ in
       nativeMessagingHosts = [
         pkgs.keepassxc
       ];
-      profiles.default.extensions.packages = [
-        pkgs.nur.repos.rycee.firefox-addons.keepassxc-browser
-      ];
+      profiles.default.extensions = {
+        packages = [
+          pkgs.nur.repos.rycee.firefox-addons.keepassxc-browser
+        ];
+        settings."keepassxc-browser@keepassxc.org".settings.settings = {
+          defaultPasswordManager = true;
+          usePasswordGeneratorIcons = true;
+          showLoginFormIcon = true;
+          showLoginNotifications = true;
+          showNotifications = true;
+          useObserver = true;
+          usePredefinedSites = true;
+        };
+      };
     };
   };
 }

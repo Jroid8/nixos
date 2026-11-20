@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  secrets,
   ...
 }:
 let
@@ -65,5 +66,8 @@ in
       inherit dmenuCmd;
       terminalEmulator = pkgs.kitty;
     };
+
+    librewolf.profiles.default.extensions.settings."keepassxc-browser@keepassxc.org".settings =
+      secrets.keepassxc-browser.omen;
   };
 }

@@ -37,11 +37,11 @@
     },
     "eval-time-secret-values": {
       "locked": {
-        "lastModified": 1795194599,
-        "narHash": "sha256-B/3ZISRC0mUbAyegY8x/UHnTHmyAf8HaVOqiK0eIaDI=",
+        "lastModified": 1795197425,
+        "narHash": "sha256-IY0FWyCZDwimD/pSWk0zxdzE+SY/K/7sa5UJ8p1p71g=",
         "owner": "Jroid8",
         "repo": "nixos-eval-time-secrets",
-        "rev": "fc3dec025fc6b01a2b916e56e9137207c614050f",
+        "rev": "6818b5b0312b0cbbf19ff637cb6210080efaf9a9",
         "type": "github"
       },
       "original": {
