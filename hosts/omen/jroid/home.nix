@@ -1,4 +1,10 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
   imports = [
     ./packages.nix
     ./programs.nix
@@ -6,7 +12,10 @@
     ./theming.nix
   ];
 
-  age.secretsDir = "/run/user/${builtins.toString config.home.uid}/agenix";
+  age = {
+    secretsDir = "/run/user/${builtins.toString config.home.uid}/agenix";
+    identityPaths = [ "/home/jroid/.config/age/nixos-keys.txt" ];
+  };
 
   xdg = {
     enable = true;

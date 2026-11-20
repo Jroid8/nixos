@@ -57,8 +57,6 @@
   };
 
   # Users
-  age.secrets.jroid-passwd.file = ../../../secrets/jroid-passwd.age;
-  age.secrets.omen-passwd.file = ../../../secrets/omen-passwd.age;
   users = {
     mutableUsers = false;
     users = {
@@ -84,6 +82,15 @@
   nixpkgs.overlays = [
     inputs.grim-hyprland.overlays.default
   ];
+
+  # age
+  age = {
+    secrets = {
+      jroid-passwd.file = ../../../secrets/jroid-passwd.age;
+      omen-passwd.file = ../../../secrets/omen-passwd.age;
+    };
+    identityPaths = [ "/root/.config/age/nixos-keys.txt" ];
+  };
 
   custom = {
     aliases.enable = true;
