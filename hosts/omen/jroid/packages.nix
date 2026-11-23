@@ -40,6 +40,8 @@
       krita
       krita-plugin-gmic
       inkscape
+
+      man-pages-posix
     ])
     ++ [
       pkgs-cuda.blender
