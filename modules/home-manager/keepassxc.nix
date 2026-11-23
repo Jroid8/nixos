@@ -21,7 +21,7 @@ in
         General = {
           ConfigVersion = 2;
           AutoGeneratePasswordForNewEntries = true;
-          OpenPreviousDatabasesOnStartup = false;
+          OpenPreviousDatabasesOnStartup = true;
         };
         GUI = {
           AdvancedSettings = true;
