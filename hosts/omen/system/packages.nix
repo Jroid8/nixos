@@ -2,16 +2,21 @@
 {
   environment.systemPackages = with pkgs; [
     # Commandline Utils
+    age
+    brightnessctl
     curl
+    fastfetch
     fd
     file
+    lm_sensors
     lsof
+    neovim
     nix-output-monitor
     nix-tree
     pv
     ripgrep
-    neovim
     screen
+    trash-cli
     inputs.agenix.packages.x86_64-linux.default
 
     # Filesystem Utils
