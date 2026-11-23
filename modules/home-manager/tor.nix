@@ -6,8 +6,9 @@
 }:
 let
   cfg = config.custom.tor;
+  privateTorrc = "${config.xdg.configHome}/torrc";
   torrc = pkgs.writeText "torrc" ''
-    %include ${config.age.secrets.tor.path}
+    %include ${privateTorrc}
     HTTPTunnelPort 9080
     ClientTransportPlugin obfs4 exec ${lib.getExe pkgs.obfs4}
   '';
@@ -19,7 +20,6 @@ in
     };
   };
   config = lib.mkIf cfg.enable {
-    age.secrets.tor.file = ../../secrets/tor.age;
     systemd.user.services.tor = {
       Unit = {
         Description = "TOR client daemon";
@@ -31,6 +31,11 @@ in
         ExecReload = "${lib.getExe' pkgs.coreutils "kill"} -HUP $MAINPID";
         KillSignal = "SIGINT";
       };
+    };
+    home.activation = {
+      privateTorrcPlacement = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        [[ ! -e ${privateTorrc} ]] && run touch ${privateTorrc}
+      '';
     };
   };
 }
