@@ -7,8 +7,11 @@
 }:
 let
   cfg = config.custom.lualine;
-  extensions = [ "quickfix" ]
-  ++ (lib.optional config.custom.oil.enable "oil");
+  extensions = [
+    "quickfix"
+  ]
+  ++ (lib.optional config.custom.oil.enable "oil")
+  ++ (lib.optional config.custom.neo-tree.enable "neo-tree");
   toLua = lib.generators.toLua { multiline = false; };
 in
 {
