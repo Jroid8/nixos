@@ -7,6 +7,9 @@
 }:
 let
   cfg = config.custom.lualine;
+  extensions = [ "quickfix" ]
+  ++ (lib.optional config.custom.oil.enable "oil");
+  toLua = lib.generators.toLua { multiline = false; };
 in
 {
   options = {
@@ -21,6 +24,7 @@ in
     plugins.start = [ pkgs.vimPlugins.lualine-nvim ];
     initLuaDag.lualine-setup = dag.entryAfter [ "colorscheme" ] /* lua */ ''
       require("lualine").setup({
+        extensions = ${toLua extensions},
         options = {
           component_separators = { left = "", right = "" },
         },
