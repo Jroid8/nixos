@@ -9,6 +9,7 @@ vim.o.conceallevel = 2;
 vim.o.concealcursor = "n";
 vim.o.linebreak = true;
 vim.o.number = true;
+vim.o.signcolumn = "yes";
 vim.o.relativenumber = true;
 vim.o.splitright = true;
 vim.o.exrc = true;
