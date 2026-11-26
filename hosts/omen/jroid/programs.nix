@@ -14,7 +14,6 @@ in
   custom = {
     librewolf.enable = true;
     noctalia.enable = true;
-    nvf.enable = true;
     rofi.enable = true;
     direnv.enable = true;
     eza.enable = true;
@@ -38,8 +37,8 @@ in
       mps = lib.getExe config.programs.mps.finalPackage;
       terminalEmulator = kitty;
       wallpaperSwitch.command = "${lib.getExe config.programs.noctalia.package} msg wallpaper-random";
-      textEditor.command = "${kitty} ${lib.getExe config.programs.nvf.finalPackage}";
-      openNotes.command = "${kitty} -d Notes ${lib.getExe config.programs.nvf.finalPackage} index.norg";
+      textEditor.command = "${kitty} ${lib.getExe config.programs.my-neovim.finalPackage}";
+      openNotes.command = "${kitty} -d Notes ${lib.getExe config.programs.my-neovim.finalPackage} index.norg";
     };
     mpv = {
       enable = true;
@@ -55,6 +54,7 @@ in
     embed-thumbnail.enable = true;
     game-launching-tools.enable = true;
     home-manager.enable = true;
+    my-neovim.enable = true;
     tarzstd.enable = true;
     zoxide.enable = true;
 

@@ -13,10 +13,6 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvf = {
-      url = "github:NotAShelf/nvf/v26.07";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     grim-hyprland = {
       url = "github:eriedaberrie/grim-hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
