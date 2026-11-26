@@ -19,6 +19,8 @@ let
       rust
       typescript
       typst
+      tree-sitter-norg
+      tree-sitter-norg-meta
     ]
   );
 in
