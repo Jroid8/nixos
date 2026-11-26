@@ -56,6 +56,7 @@ in
     game-launching-tools.enable = true;
     home-manager.enable = true;
     tarzstd.enable = true;
+    zoxide.enable = true;
 
     mps = {
       enable = true;
