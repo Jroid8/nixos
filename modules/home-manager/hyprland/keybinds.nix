@@ -278,6 +278,10 @@ in
                 "F"
                 (hl_dsp "exec_raw" "${cfg.terminalEmulator} ${lib.getExe pkgs.yazi}")
               ]
+              [
+                "S"
+                (hl_dsp "exec_raw" "${lib.getExe pkgs.rofimoji} -f all")
+              ]
               catchAll
             ];
           };
